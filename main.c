@@ -29,7 +29,6 @@
 #define RCGCGPIO_ALL (RCGCGPIO_B | RCGCGPIO_D | RCGCGPIO_E | RCGCGPIO_F)
 
 QueueHandle_t xButtonQueue;           // Queue for button events
-QueueHandle_t xGateQueue;           // Queue for Gate events
 SemaphoreHandle_t xObstacleSemaphore; // For obstacle detection
 SemaphoreHandle_t xLimitSemaphore;    // For limit buttons
 SemaphoreHandle_t xGateMutex;         // Protect gate state
@@ -95,12 +94,6 @@ void LED_Set(uint8_t led, bool on) {
 void LED_AllOff(void) {
     GPIO_PORTF_DATA_R &= ~(LED_GREEN | LED_RED);
 }
-
-//For timestamp to switch between Auto and Manual Mode
-typedef struct {
-    ButtonEvent_t eEvent;    
-    TickType_t xPressTime;
-} ButtonPress_t;
 
 //To check if button still pressed after a time (Auto / Manual mode) and to check if button was pressed by wrong
 bool IsButtonStillPressedByID(uint8_t u8Button) {
@@ -182,7 +175,7 @@ static void GPIO_Init(void)
     GPIO_PORTF_IM_R |= BTN_PF4;    // Enable interrupts 
     
     NVIC_EN0_R |= (1 << 30);
-    NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF00FFFF) | (6 << 21);
+    NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF00FFFF) | (5 << 21);
 		
 		//Port E interrupt (limit buttons)
 		GPIO_PORTE_IS_R &= ~(BTN_PE0 | BTN_PE1);   // Edge-sensitive
@@ -192,29 +185,7 @@ static void GPIO_Init(void)
     GPIO_PORTE_IM_R |= (BTN_PE0 | BTN_PE1);    // Enable interrupts for both switches
     
     NVIC_EN0_R |= (1 << 4);
-    NVIC_PRI1_R = (NVIC_PRI1_R & 0xFFFFFF1FU) | (7U << 5);
-		
-		/*
-		//Port B interrupt (security buttons)
-		GPIO_PORTB_IS_R &= ~(BTN_PB0 | BTN_PB1);   // Edge-sensitive
-    GPIO_PORTB_IBE_R &= ~(BTN_PB0 | BTN_PB1);  // Not both edges
-    GPIO_PORTB_IEV_R |= (BTN_PB0 | BTN_PB1);  // Rising edge (button press)
-    GPIO_PORTB_ICR_R = (BTN_PB0 | BTN_PB1);    // Clear any prior interrupts
-    GPIO_PORTB_IM_R |= (BTN_PB0 | BTN_PB1);    // Enable interrupts for both switches
-    
-    NVIC_EN0_R |= (1 << 2);
-    NVIC_PRI2_R = (NVIC_PRI2_R & 0xFF00FFFF) | (3 << 21);
-		
-		//Port D interrupt (driver buttons)
-		GPIO_PORTD_IS_R &= ~(BTN_PD0 | BTN_PD1);   // Edge-sensitive
-    GPIO_PORTD_IBE_R &= ~(BTN_PD0 | BTN_PD1);  // Not both edges
-    GPIO_PORTD_IEV_R |= (BTN_PD0 | BTN_PD1);  // Rising edge (button press)
-    GPIO_PORTD_ICR_R = (BTN_PD0 | BTN_PD1);    // Clear any prior interrupts
-    GPIO_PORTD_IM_R |= (BTN_PD0 | BTN_PD1);    // Enable interrupts for both switches
-    
-    NVIC_EN0_R |= (1 << 3);
-    NVIC_PRI3_R = (NVIC_PRI3_R & 0xFF00FFFF) | (4 << 21);
-		*/
+    NVIC_PRI4_R = (NVIC_PRI4_R & 0xFF00FFFF) | (6 << 21);
 		
 }
 
@@ -229,7 +200,6 @@ void GPIOF_Handler(void) {
     
     portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
-
 
 //Limit Handler
 void GPIOE_Handler(void) {
@@ -247,50 +217,6 @@ void GPIOE_Handler(void) {
     
     portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
-
-
-//security Handler
-/*
-void GPIOB_Handler(void) {
-    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-    ButtonEvent_t eEvent;
-    
-    if (GPIO_PORTB_RIS_R & BTN_PB0) {
-        GPIO_PORTB_ICR_R = BTN_PB0;
-        eEvent = BTN_SECURITY_OPEN;
-        xQueueSendFromISR(xButtonQueue, &eEvent, &xHigherPriorityTaskWoken);
-    }
-    
-    if (GPIO_PORTB_RIS_R & BTN_PB1) {
-        GPIO_PORTB_ICR_R = BTN_PB1;
-        eEvent = BTN_SECURITY_CLOSE;
-        xQueueSendFromISR(xButtonQueue, &eEvent, &xHigherPriorityTaskWoken);
-    }
-    
-    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-}
-
-
-//Driver Handler
-void GPIOD_Handler(void) {
-    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-    ButtonEvent_t eEvent;
-    
-    if (GPIO_PORTD_RIS_R & BTN_PD0) {
-        GPIO_PORTD_ICR_R = BTN_PD0;
-        eEvent = BTN_DRIVER_OPEN;
-        xQueueSendFromISR(xButtonQueue, &eEvent, &xHigherPriorityTaskWoken);
-    }
-    
-    if (GPIO_PORTD_RIS_R & BTN_PD1) {
-        GPIO_PORTD_ICR_R = BTN_PD1;
-        eEvent = BTN_DRIVER_CLOSE;
-        xQueueSendFromISR(xButtonQueue, &eEvent, &xHigherPriorityTaskWoken);
-    }
-    
-    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-}
-*/
 
 //Obstacle Task
 void vSafetyTask(void *pvParameters) {
@@ -336,6 +262,8 @@ void vInputTask(void *pvParameters) {
 			  if (cur[2] == true || cur[3] == true) {
             cur[0] = false; // Ignore Driver OPEN
             cur[1] = false; // Ignore Driver CLOSE
+						prev[0] = false;  
+						prev[1] = false;
         }
 				
 				
@@ -348,9 +276,15 @@ void vInputTask(void *pvParameters) {
                 TickType_t holdDuration = xTaskGetTickCount() - pressTime[i];
                 
                 if (holdDuration >= HOLD_THRESHOLD) {
+										//Manual
+										vPrintString("Manual Press Released\n");
                     ButtonEvent_t releaseEvent = BTN_RELEASED;
                     xQueueSend(xButtonQueue, &releaseEvent, 0);
                 }
+								else {
+										// Auto
+										vPrintString("Auto Press , Press limit button to stop\n");
+								}
             }
             
             prev[i] = cur[i]; 
@@ -458,7 +392,6 @@ int main(void) {
     GPIO_Init();
     
     xButtonQueue = xQueueCreate(10, sizeof(ButtonEvent_t));
-    xGateQueue = xQueueCreate(10, sizeof(ButtonPress_t));
     xObstacleSemaphore = xSemaphoreCreateBinary();
 	  xLimitSemaphore = xSemaphoreCreateBinary();
     xGateMutex = xSemaphoreCreateMutex();
