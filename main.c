@@ -130,7 +130,7 @@ static void GPIO_Init(void)
     SYSCTL_RCGCGPIO_R |= RCGCGPIO_ALL;
     while ((SYSCTL_PRGPIO_R & RCGCGPIO_ALL) != RCGCGPIO_ALL) { }
 
-    /* ---------- Port F: RGB outputs (PF1-3) and button PF4 ---------- */
+    /* ---------- Port F(obstacle): RGB outputs (PF1-3) and button PF4 ---------- */
     GPIO_PORTF_AMSEL_R &= ~(BTN_PF4 | LED_MASK);
     GPIO_PORTF_PCTL_R  &= ~0x000FFFF0U;   /* digital GPIO function for PF1..PF4 */
     GPIO_PORTF_AFSEL_R &= ~(BTN_PF4 | LED_MASK);
@@ -142,7 +142,7 @@ static void GPIO_Init(void)
     GPIO_PORTF_DEN_R   |=  BTN_PF4 | LED_MASK;
     GPIO_PORTF_DATA_R  &= ~LED_MASK;      /* LEDs off */
 
-    /* ---------- Port E: PE0, PE1 buttons (pull-down, active-high) ---------- */
+    /* ---------- Port E(limit): PE0, PE1 buttons (pull-down, active-high) ---------- */
     GPIO_PORTE_AMSEL_R &= ~(BTN_PE0 | BTN_PE1);
     GPIO_PORTE_PCTL_R  &= ~0x000000FFU;
     GPIO_PORTE_AFSEL_R &= ~(BTN_PE0 | BTN_PE1);
@@ -150,7 +150,7 @@ static void GPIO_Init(void)
     GPIO_PORTE_PDR_R   |=  (BTN_PE0 | BTN_PE1);
     GPIO_PORTE_DEN_R   |=  (BTN_PE0 | BTN_PE1);
 
-    /* ---------- Port B: PB0, PB1 buttons (pull-down, active-high) ---------- */
+    /* ---------- Port B(security): PB0, PB1 buttons (pull-down, active-high) ---------- */
     GPIO_PORTB_AMSEL_R &= ~(BTN_PB0 | BTN_PB1);
     GPIO_PORTB_PCTL_R  &= ~0x000000FFU;
     GPIO_PORTB_AFSEL_R &= ~(BTN_PB0 | BTN_PB1);
@@ -158,7 +158,7 @@ static void GPIO_Init(void)
     GPIO_PORTB_PDR_R   |=  (BTN_PB0 | BTN_PB1);
     GPIO_PORTB_DEN_R   |=  (BTN_PB0 | BTN_PB1);
 
-    /* ---------- Port D: PD0, PD1 buttons (pull-down, active-high) ---------- */
+    /* ---------- Port D(driver): PD0, PD1 buttons (pull-down, active-high) ---------- */
     GPIO_PORTD_AMSEL_R &= ~(BTN_PD0 | BTN_PD1);
     GPIO_PORTD_PCTL_R  &= ~0x000000FFU;
     GPIO_PORTD_AFSEL_R &= ~(BTN_PD0 | BTN_PD1);
