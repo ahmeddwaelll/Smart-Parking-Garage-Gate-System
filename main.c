@@ -29,6 +29,7 @@
 #define RCGCGPIO_ALL (RCGCGPIO_B | RCGCGPIO_D | RCGCGPIO_E | RCGCGPIO_F)
 
 QueueHandle_t xButtonQueue;           // Queue for button events
+QueueHandle_t xValidatedQueue;        // Queue for validated button presses
 SemaphoreHandle_t xObstacleSemaphore; // For obstacle detection
 SemaphoreHandle_t xLimitSemaphore;    // For limit buttons
 SemaphoreHandle_t xGateMutex;         // Protect gate state
@@ -175,7 +176,7 @@ static void GPIO_Init(void)
     GPIO_PORTF_IM_R |= BTN_PF4;    // Enable interrupts 
     
     NVIC_EN0_R |= (1 << 30);
-    NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF00FFFF) | (5 << 21);
+    NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF00FFFF) | (3 << 21);
 		
 		//Port E interrupt (limit buttons)
 		GPIO_PORTE_IS_R &= ~(BTN_PE0 | BTN_PE1);   // Edge-sensitive
@@ -185,8 +186,28 @@ static void GPIO_Init(void)
     GPIO_PORTE_IM_R |= (BTN_PE0 | BTN_PE1);    // Enable interrupts for both switches
     
     NVIC_EN0_R |= (1 << 4);
-    NVIC_PRI4_R = (NVIC_PRI4_R & 0xFF00FFFF) | (6 << 21);
+    NVIC_PRI4_R = (NVIC_PRI4_R & 0xFF00FFFF) | (4 << 21);
 		
+		
+		//Port B interrupt (security buttons)
+		GPIO_PORTB_IS_R &= ~(BTN_PB0 | BTN_PB1);   // Edge-sensitive
+    GPIO_PORTB_IBE_R &= ~(BTN_PB0 | BTN_PB1);  // Not both edges
+    GPIO_PORTB_IEV_R |= (BTN_PB0 | BTN_PB1);  // Rising edge (button press)
+    GPIO_PORTB_ICR_R = (BTN_PB0 | BTN_PB1);    // Clear any prior interrupts
+    GPIO_PORTB_IM_R |= (BTN_PB0 | BTN_PB1);    // Enable interrupts for both switches
+    
+    NVIC_EN0_R |= (1 << 2);
+    NVIC_PRI2_R = (NVIC_PRI2_R & 0xFF00FFFF) | (5 << 21);
+		
+		//Port D interrupt (driver buttons)
+		GPIO_PORTD_IS_R &= ~(BTN_PD0 | BTN_PD1);   // Edge-sensitive
+    GPIO_PORTD_IBE_R &= ~(BTN_PD0 | BTN_PD1);  // Not both edges
+    GPIO_PORTD_IEV_R |= (BTN_PD0 | BTN_PD1);  // Rising edge (button press)
+    GPIO_PORTD_ICR_R = (BTN_PD0 | BTN_PD1);    // Clear any prior interrupts
+    GPIO_PORTD_IM_R |= (BTN_PD0 | BTN_PD1);    // Enable interrupts for both switches
+    
+    NVIC_EN0_R |= (1 << 3);
+    NVIC_PRI3_R = (NVIC_PRI3_R & 0xFF00FFFF) | (6 << 21);
 }
 
 //Obstacle Handler
@@ -218,9 +239,49 @@ void GPIOE_Handler(void) {
     portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
 
+//security Handler
+void GPIOB_Handler(void) {
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    ButtonEvent_t eEvent;
+    
+    if (GPIO_PORTB_RIS_R & BTN_PB0) {
+        GPIO_PORTB_ICR_R = BTN_PB0;
+        eEvent = BTN_SECURITY_OPEN;
+        xQueueSendFromISR(xButtonQueue, &eEvent, &xHigherPriorityTaskWoken);
+    }
+    
+    if (GPIO_PORTB_RIS_R & BTN_PB1) {
+        GPIO_PORTB_ICR_R = BTN_PB1;
+        eEvent = BTN_SECURITY_CLOSE;
+        xQueueSendFromISR(xButtonQueue, &eEvent, &xHigherPriorityTaskWoken);
+    }
+    
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
+
+
+//Driver Handler
+void GPIOD_Handler(void) {
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    ButtonEvent_t eEvent;
+    
+    if (GPIO_PORTD_RIS_R & BTN_PD0) {
+        GPIO_PORTD_ICR_R = BTN_PD0;
+        eEvent = BTN_DRIVER_OPEN;
+        xQueueSendFromISR(xButtonQueue, &eEvent, &xHigherPriorityTaskWoken);
+    }
+    
+    if (GPIO_PORTD_RIS_R & BTN_PD1) {
+        GPIO_PORTD_ICR_R = BTN_PD1;
+        eEvent = BTN_DRIVER_CLOSE;
+        xQueueSendFromISR(xButtonQueue, &eEvent, &xHigherPriorityTaskWoken);
+    }
+    
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
+
 //Obstacle Task
 void vSafetyTask(void *pvParameters) {
-    vPrintString("Safety Task Started\n");
     
     while(1) {
         if (xSemaphoreTake(xObstacleSemaphore, portMAX_DELAY) == pdTRUE) {
@@ -234,68 +295,65 @@ void vSafetyTask(void *pvParameters) {
 }
 
 void vInputTask(void *pvParameters) {
-    vPrintString("Input Task Started\n");
+    ButtonEvent_t eEvent;
+    TickType_t xPressTime;
+    const TickType_t HOLD_THRESHOLD = pdMS_TO_TICKS(300);
     
-    // Indices: 0=DriverOpen, 1=DriverClose, 2=SecurityOpen, 3=SecurityClose
-    bool prev[4] = {false, false, false, false};
-    TickType_t pressTime[4] = {0, 0, 0, 0};
-    
-    // 300ms threshold to distinguish Tap (Auto) from Hold (Manual)
-    const TickType_t HOLD_THRESHOLD = pdMS_TO_TICKS(300); 
-
-    // Map array indices to their corresponding events
-    ButtonEvent_t events[4] = {
-        BTN_DRIVER_OPEN, 
-        BTN_DRIVER_CLOSE, 
-        BTN_SECURITY_OPEN, 
-        BTN_SECURITY_CLOSE
-    };
-
     while(1) {
-        bool cur[4];
-        cur[0] = IsButtonStillPressedByID(BTN_DRIVER_OPEN);
-        cur[1] = IsButtonStillPressedByID(BTN_DRIVER_CLOSE);
-        cur[2] = IsButtonStillPressedByID(BTN_SECURITY_OPEN);
-        cur[3] = IsButtonStillPressedByID(BTN_SECURITY_CLOSE);
-
-			
-			  if (cur[2] == true || cur[3] == true) {
-            cur[0] = false; // Ignore Driver OPEN
-            cur[1] = false; // Ignore Driver CLOSE
-						prev[0] = false;  
-						prev[1] = false;
-        }
-				
-				
-        for(int i = 0; i < 4; i++) {
-            if (cur[i] == true && prev[i] == false) {
-                pressTime[i] = xTaskGetTickCount(); 
-                xQueueSend(xButtonQueue, &events[i], 0); 
+        // Wait for button event from ISR
+        xQueueReceive(xButtonQueue, &eEvent, portMAX_DELAY);
+        
+        // Record press time
+        xPressTime = xTaskGetTickCount();
+        
+        // Debounce
+        vTaskDelay(pdMS_TO_TICKS(20));
+        
+        // Verify still pressed using YOUR existing function
+        if (IsButtonStillPressedByID(eEvent)) {
+					
+						GateState_t currentState = GateState_Get();
+            
+            // Print based on gate state and button type
+            if (eEvent == BTN_SECURITY_OPEN &&
+                (currentState == IDLE_CLOSED || currentState == STOPPED_MIDWAY)) {
+                vPrintString("Security opening\n");
             }
-            else if (cur[i] == false && prev[i] == true) {
-                TickType_t holdDuration = xTaskGetTickCount() - pressTime[i];
-                
-                if (holdDuration >= HOLD_THRESHOLD) {
-										//Manual
-										vPrintString("Manual Press Released\n");
-                    ButtonEvent_t releaseEvent = BTN_RELEASED;
-                    xQueueSend(xButtonQueue, &releaseEvent, 0);
-                }
-								else {
-										// Auto
-										vPrintString("Auto Press , Press limit button to stop\n");
-								}
+            else if (eEvent == BTN_SECURITY_CLOSE &&
+                     (currentState == IDLE_OPEN || currentState == STOPPED_MIDWAY)) {
+                vPrintString("Security closing\n");
+            }
+						else if (eEvent == BTN_DRIVER_OPEN &&
+                     (currentState == IDLE_CLOSED || currentState == STOPPED_MIDWAY)) {
+                vPrintString("Driver opening\n");
+            }
+						else if (eEvent == BTN_DRIVER_CLOSE &&
+                     (currentState == IDLE_OPEN || currentState == STOPPED_MIDWAY)) {
+                vPrintString("Driver closing\n");
+            }
+						// Forward press event to Gate Task
+            xQueueSend(xValidatedQueue, &eEvent, 0);
+            
+            // Wait for release
+            while (IsButtonStillPressedByID(eEvent)) {
+                vTaskDelay(pdMS_TO_TICKS(10));
             }
             
-            prev[i] = cur[i]; 
+            // Calculate hold duration
+            if ((xTaskGetTickCount() - xPressTime) >= HOLD_THRESHOLD) {
+                // Manual mode: send RELEASED event
+                ButtonEvent_t release = BTN_RELEASED;
+								vPrintString("Manual press\n");
+                xQueueSend(xValidatedQueue, &release, 0);
+            } else {
+                // Auto mode: do nothing
+                vPrintString("Auto press, press limit to stop\n");
+            }
         }
-
-        vTaskDelay(pdMS_TO_TICKS(20)); // 20ms debounce delay and yield to other tasks
     }
 }
 
 void vGateControlTask(void *pvParameters) {
-    vPrintString("Gate Control Task Started\n");
     ButtonEvent_t eReceivedEvent;
     GateState_t eCurrentState;
 
@@ -315,7 +373,7 @@ void vGateControlTask(void *pvParameters) {
         }
 
         // Step 2: Check for User Commands
-        if (xQueueReceive(xButtonQueue, &eReceivedEvent, pdMS_TO_TICKS(20)) == pdTRUE) {
+        if (xQueueReceive(xValidatedQueue, &eReceivedEvent, pdMS_TO_TICKS(20)) == pdTRUE) {
             eCurrentState = GateState_Get();
 
             switch(eCurrentState) {
@@ -392,6 +450,7 @@ int main(void) {
     GPIO_Init();
     
     xButtonQueue = xQueueCreate(10, sizeof(ButtonEvent_t));
+		xValidatedQueue = xQueueCreate(10, sizeof(ButtonEvent_t));
     xObstacleSemaphore = xSemaphoreCreateBinary();
 	  xLimitSemaphore = xSemaphoreCreateBinary();
     xGateMutex = xSemaphoreCreateMutex();

@@ -13,11 +13,17 @@ Section Cross References
     main.o(.text.GPIOE_Handler) refers to main.o(.bss.xLimitSemaphore) for xLimitSemaphore
     main.o(.text.GPIOE_Handler) refers to queue.o(.text.xQueueGiveFromISR) for xQueueGiveFromISR
     main.o(.ARM.exidx.text.GPIOE_Handler) refers to main.o(.text.GPIOE_Handler) for [Anonymous Symbol]
-    main.o(.text.vSafetyTask) refers to main.o(.rodata.str1.1) for .L.str
-    main.o(.text.vSafetyTask) refers to basic_io.o(.text.vPrintString) for vPrintString
+    main.o(.text.GPIOB_Handler) refers to main.o(.bss.xButtonQueue) for xButtonQueue
+    main.o(.text.GPIOB_Handler) refers to queue.o(.text.xQueueGenericSendFromISR) for xQueueGenericSendFromISR
+    main.o(.ARM.exidx.text.GPIOB_Handler) refers to main.o(.text.GPIOB_Handler) for [Anonymous Symbol]
+    main.o(.text.GPIOD_Handler) refers to main.o(.bss.xButtonQueue) for xButtonQueue
+    main.o(.text.GPIOD_Handler) refers to queue.o(.text.xQueueGenericSendFromISR) for xQueueGenericSendFromISR
+    main.o(.ARM.exidx.text.GPIOD_Handler) refers to main.o(.text.GPIOD_Handler) for [Anonymous Symbol]
     main.o(.text.vSafetyTask) refers to main.o(.bss.xObstacleSemaphore) for xObstacleSemaphore
     main.o(.text.vSafetyTask) refers to queue.o(.text.xQueueSemaphoreTake) for xQueueSemaphoreTake
     main.o(.text.vSafetyTask) refers to main.o(.text.GateState_CompareAndSet) for GateState_CompareAndSet
+    main.o(.text.vSafetyTask) refers to main.o(.rodata.str1.1) for .L.str
+    main.o(.text.vSafetyTask) refers to basic_io.o(.text.vPrintString) for vPrintString
     main.o(.text.vSafetyTask) refers to tasks.o(.text.vTaskDelay) for vTaskDelay
     main.o(.ARM.exidx.text.vSafetyTask) refers to main.o(.text.vSafetyTask) for [Anonymous Symbol]
     main.o(.text.GateState_CompareAndSet) refers to main.o(.bss.xGateMutex) for xGateMutex
@@ -25,28 +31,31 @@ Section Cross References
     main.o(.text.GateState_CompareAndSet) refers to main.o(.data.gateState) for gateState
     main.o(.text.GateState_CompareAndSet) refers to queue.o(.text.xQueueGenericSend) for xQueueGenericSend
     main.o(.ARM.exidx.text.GateState_CompareAndSet) refers to main.o(.text.GateState_CompareAndSet) for [Anonymous Symbol]
-    main.o(.text.vInputTask) refers to main.o(.rodata.str1.1) for .L.str.2
-    main.o(.text.vInputTask) refers to basic_io.o(.text.vPrintString) for vPrintString
-    main.o(.text.vInputTask) refers to main.o(.text.IsButtonStillPressedByID) for IsButtonStillPressedByID
-    main.o(.text.vInputTask) refers to tasks.o(.text.xTaskGetTickCount) for xTaskGetTickCount
     main.o(.text.vInputTask) refers to main.o(.bss.xButtonQueue) for xButtonQueue
-    main.o(.text.vInputTask) refers to queue.o(.text.xQueueGenericSend) for xQueueGenericSend
+    main.o(.text.vInputTask) refers to queue.o(.text.xQueueReceive) for xQueueReceive
+    main.o(.text.vInputTask) refers to tasks.o(.text.xTaskGetTickCount) for xTaskGetTickCount
     main.o(.text.vInputTask) refers to tasks.o(.text.vTaskDelay) for vTaskDelay
+    main.o(.text.vInputTask) refers to main.o(.text.IsButtonStillPressedByID) for IsButtonStillPressedByID
+    main.o(.text.vInputTask) refers to main.o(.text.GateState_Get) for GateState_Get
+    main.o(.text.vInputTask) refers to main.o(.rodata.str1.1) for .L.str.1
+    main.o(.text.vInputTask) refers to basic_io.o(.text.vPrintString) for vPrintString
+    main.o(.text.vInputTask) refers to main.o(.bss.xValidatedQueue) for xValidatedQueue
+    main.o(.text.vInputTask) refers to queue.o(.text.xQueueGenericSend) for xQueueGenericSend
     main.o(.ARM.exidx.text.vInputTask) refers to main.o(.text.vInputTask) for [Anonymous Symbol]
-    main.o(.text.vGateControlTask) refers to main.o(.rodata.str1.1) for .L.str.5
-    main.o(.text.vGateControlTask) refers to basic_io.o(.text.vPrintString) for vPrintString
-    main.o(.text.vGateControlTask) refers to main.o(.bss.xLimitSemaphore) for xLimitSemaphore
-    main.o(.text.vGateControlTask) refers to queue.o(.text.xQueueSemaphoreTake) for xQueueSemaphoreTake
-    main.o(.text.vGateControlTask) refers to main.o(.text.GateState_Get) for GateState_Get
-    main.o(.text.vGateControlTask) refers to main.o(.text.GateState_Set) for GateState_Set
-    main.o(.text.vGateControlTask) refers to main.o(.bss.xButtonQueue) for xButtonQueue
-    main.o(.text.vGateControlTask) refers to queue.o(.text.xQueueReceive) for xQueueReceive
-    main.o(.ARM.exidx.text.vGateControlTask) refers to main.o(.text.vGateControlTask) for [Anonymous Symbol]
     main.o(.text.GateState_Get) refers to main.o(.bss.xGateMutex) for xGateMutex
     main.o(.text.GateState_Get) refers to queue.o(.text.xQueueSemaphoreTake) for xQueueSemaphoreTake
     main.o(.text.GateState_Get) refers to main.o(.data.gateState) for gateState
     main.o(.text.GateState_Get) refers to queue.o(.text.xQueueGenericSend) for xQueueGenericSend
     main.o(.ARM.exidx.text.GateState_Get) refers to main.o(.text.GateState_Get) for [Anonymous Symbol]
+    main.o(.text.vGateControlTask) refers to main.o(.bss.xLimitSemaphore) for xLimitSemaphore
+    main.o(.text.vGateControlTask) refers to queue.o(.text.xQueueSemaphoreTake) for xQueueSemaphoreTake
+    main.o(.text.vGateControlTask) refers to main.o(.text.GateState_Get) for GateState_Get
+    main.o(.text.vGateControlTask) refers to main.o(.text.GateState_Set) for GateState_Set
+    main.o(.text.vGateControlTask) refers to main.o(.rodata.str1.1) for .L.str.7
+    main.o(.text.vGateControlTask) refers to basic_io.o(.text.vPrintString) for vPrintString
+    main.o(.text.vGateControlTask) refers to main.o(.bss.xValidatedQueue) for xValidatedQueue
+    main.o(.text.vGateControlTask) refers to queue.o(.text.xQueueReceive) for xQueueReceive
+    main.o(.ARM.exidx.text.vGateControlTask) refers to main.o(.text.vGateControlTask) for [Anonymous Symbol]
     main.o(.text.GateState_Set) refers to main.o(.bss.xGateMutex) for xGateMutex
     main.o(.text.GateState_Set) refers to queue.o(.text.xQueueSemaphoreTake) for xQueueSemaphoreTake
     main.o(.text.GateState_Set) refers to main.o(.data.gateState) for gateState
@@ -63,13 +72,14 @@ Section Cross References
     main.o(.text.main) refers to main.o(.text.GPIO_Init) for GPIO_Init
     main.o(.text.main) refers to queue.o(.text.xQueueGenericCreate) for xQueueGenericCreate
     main.o(.text.main) refers to main.o(.bss.xButtonQueue) for xButtonQueue
+    main.o(.text.main) refers to main.o(.bss.xValidatedQueue) for xValidatedQueue
     main.o(.text.main) refers to main.o(.bss.xObstacleSemaphore) for xObstacleSemaphore
     main.o(.text.main) refers to main.o(.bss.xLimitSemaphore) for xLimitSemaphore
     main.o(.text.main) refers to queue.o(.text.xQueueCreateMutex) for xQueueCreateMutex
     main.o(.text.main) refers to main.o(.bss.xGateMutex) for xGateMutex
     main.o(.text.main) refers to main.o(.data.gateState) for gateState
     main.o(.text.main) refers to main.o(.text.vSafetyTask) for vSafetyTask
-    main.o(.text.main) refers to main.o(.rodata.str1.1) for .L.str.8
+    main.o(.text.main) refers to main.o(.rodata.str1.1) for .L.str.9
     main.o(.text.main) refers to tasks.o(.text.xTaskCreate) for xTaskCreate
     main.o(.text.main) refers to main.o(.text.vInputTask) for vInputTask
     main.o(.text.main) refers to main.o(.text.vGateControlTask) for vGateControlTask
@@ -458,6 +468,8 @@ Section Cross References
     startup_tm4c123.o(RESET) refers to port.o(.text.SVC_Handler) for SVC_Handler
     startup_tm4c123.o(RESET) refers to port.o(.text.PendSV_Handler) for PendSV_Handler
     startup_tm4c123.o(RESET) refers to cmsis_os2.o(.text.SysTick_Handler) for SysTick_Handler
+    startup_tm4c123.o(RESET) refers to main.o(.text.GPIOB_Handler) for GPIOB_Handler
+    startup_tm4c123.o(RESET) refers to main.o(.text.GPIOD_Handler) for GPIOD_Handler
     startup_tm4c123.o(RESET) refers to main.o(.text.GPIOE_Handler) for GPIOE_Handler
     startup_tm4c123.o(RESET) refers to main.o(.text.GPIOF_Handler) for GPIOF_Handler
     startup_tm4c123.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -1588,17 +1600,18 @@ Removing Unused input sections from the image.
     Removing main.o(.ARM.exidx.text.IsButtonStillPressedByID), (8 bytes).
     Removing main.o(.ARM.exidx.text.GPIOF_Handler), (8 bytes).
     Removing main.o(.ARM.exidx.text.GPIOE_Handler), (8 bytes).
+    Removing main.o(.ARM.exidx.text.GPIOB_Handler), (8 bytes).
+    Removing main.o(.ARM.exidx.text.GPIOD_Handler), (8 bytes).
     Removing main.o(.ARM.exidx.text.vSafetyTask), (8 bytes).
     Removing main.o(.ARM.exidx.text.GateState_CompareAndSet), (8 bytes).
     Removing main.o(.ARM.exidx.text.vInputTask), (8 bytes).
-    Removing main.o(.ARM.exidx.text.vGateControlTask), (8 bytes).
     Removing main.o(.ARM.exidx.text.GateState_Get), (8 bytes).
+    Removing main.o(.ARM.exidx.text.vGateControlTask), (8 bytes).
     Removing main.o(.ARM.exidx.text.GateState_Set), (8 bytes).
     Removing main.o(.ARM.exidx.text.vLedControlTask), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.exidx.text.GPIO_Init), (8 bytes).
     Removing main.o(.data.ButtonEvent), (1 bytes).
-    Removing main.o(.rodata.cst4), (4 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing basic_io.o(.text), (0 bytes).
     Removing basic_io.o(.ARM.exidx.text.vPrintString), (8 bytes).
@@ -1938,7 +1951,6 @@ Removing Unused input sections from the image.
     Removing queue.o(.ARM.exidx.text.prvCopyDataToQueue), (8 bytes).
     Removing queue.o(.ARM.exidx.text.prvIsQueueFull), (8 bytes).
     Removing queue.o(.ARM.exidx.text.prvUnlockQueue), (8 bytes).
-    Removing queue.o(.text.xQueueGenericSendFromISR), (332 bytes).
     Removing queue.o(.ARM.exidx.text.xQueueGenericSendFromISR), (8 bytes).
     Removing queue.o(.ARM.exidx.text.xQueueGiveFromISR), (8 bytes).
     Removing queue.o(.ARM.exidx.text.xQueueReceive), (8 bytes).
@@ -2141,7 +2153,7 @@ Removing Unused input sections from the image.
     Removing timers.o(.ARM.exidx.text.prvReloadTimer), (8 bytes).
     Removing timers.o(.ARM.exidx.text.prvInsertTimerInActiveList), (8 bytes).
 
-558 unused section(s) (total 26965 bytes) removed from the image.
+558 unused section(s) (total 26645 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2422,231 +2434,235 @@ Image Symbol Table
     .text                                    0x0000177c   Section        0  exit.o(.text)
     .text                                    0x00001790   Section        8  libspace.o(.text)
     [Anonymous Symbol]                       0x00001798   Section        0  clib_os.o(.text.$Sub$$_fp_init)
-    [Anonymous Symbol]                       0x000017b0   Section        0  main.o(.text.GPIOE_Handler)
-    [Anonymous Symbol]                       0x00001840   Section        0  main.o(.text.GPIOF_Handler)
-    GPIO_Init                                0x000018a1   Thumb Code   662  main.o(.text.GPIO_Init)
-    [Anonymous Symbol]                       0x000018a0   Section        0  main.o(.text.GPIO_Init)
-    GateState_CompareAndSet                  0x00001b39   Thumb Code   110  main.o(.text.GateState_CompareAndSet)
-    [Anonymous Symbol]                       0x00001b38   Section        0  main.o(.text.GateState_CompareAndSet)
-    GateState_Get                            0x00001ba9   Thumb Code    60  main.o(.text.GateState_Get)
-    [Anonymous Symbol]                       0x00001ba8   Section        0  main.o(.text.GateState_Get)
-    GateState_Set                            0x00001be5   Thumb Code    60  main.o(.text.GateState_Set)
-    [Anonymous Symbol]                       0x00001be4   Section        0  main.o(.text.GateState_Set)
-    ITM_SendChar                             0x00001c21   Thumb Code    68  retarget.o(.text.ITM_SendChar)
-    [Anonymous Symbol]                       0x00001c20   Section        0  retarget.o(.text.ITM_SendChar)
-    [Anonymous Symbol]                       0x00001c64   Section        0  main.o(.text.IsButtonStillPressedByID)
-    [Anonymous Symbol]                       0x00001d28   Section        0  main.o(.text.LED_AllOff)
-    [Anonymous Symbol]                       0x00001d3c   Section        0  main.o(.text.LED_Set)
-    [Anonymous Symbol]                       0x00001d7c   Section        0  port.o(.text.PendSV_Handler)
-    [Anonymous Symbol]                       0x00001ddc   Section        0  port.o(.text.SVC_Handler)
-    [Anonymous Symbol]                       0x00001dfc   Section        0  cmsis_os2.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x00001e1c   Section        0  system_tm4c123.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x00001f28   Section        0  retarget.o(.text.__write)
-    __tagsym$$used.1                         0x00001f5c   Number         0  clib_os.o(.text._mutex_acquire)
-    [Anonymous Symbol]                       0x00001f5c   Section        0  clib_os.o(.text._mutex_acquire)
-    __tagsym$$used.3                         0x00001f84   Number         0  clib_os.o(.text._mutex_free)
-    [Anonymous Symbol]                       0x00001f84   Section        0  clib_os.o(.text._mutex_free)
-    __tagsym$$used.0                         0x00001fd8   Number         0  clib_os.o(.text._mutex_initialize)
-    [Anonymous Symbol]                       0x00001fd8   Section        0  clib_os.o(.text._mutex_initialize)
-    __tagsym$$used.2                         0x00002080   Number         0  clib_os.o(.text._mutex_release)
-    [Anonymous Symbol]                       0x00002080   Section        0  clib_os.o(.text._mutex_release)
-    [Anonymous Symbol]                       0x000020ac   Section        0  clib_os.o(.text._platform_post_stackheap_init)
-    [Anonymous Symbol]                       0x000020b0   Section        0  retarget.o(.text._sys_exit)
-    [Anonymous Symbol]                       0x000020bc   Section        0  consoleprint.o(.text.consoleprint)
-    is_thread_mode                           0x000020dd   Thumb Code    32  clib_os.o(.text.is_thread_mode)
-    [Anonymous Symbol]                       0x000020dc   Section        0  clib_os.o(.text.is_thread_mode)
-    [Anonymous Symbol]                       0x000020fc   Section        0  main.o(.text.main)
-    os_kernel_is_active                      0x00002201   Thumb Code    32  clib_os.o(.text.os_kernel_is_active)
-    [Anonymous Symbol]                       0x00002200   Section        0  clib_os.o(.text.os_kernel_is_active)
-    prvAddCurrentTaskToDelayedList           0x00002221   Thumb Code   270  tasks.o(.text.prvAddCurrentTaskToDelayedList)
-    [Anonymous Symbol]                       0x00002220   Section        0  tasks.o(.text.prvAddCurrentTaskToDelayedList)
-    prvAddNewTaskToReadyList                 0x00002331   Thumb Code   368  tasks.o(.text.prvAddNewTaskToReadyList)
-    [Anonymous Symbol]                       0x00002330   Section        0  tasks.o(.text.prvAddNewTaskToReadyList)
-    prvCheckForValidListAndQueue             0x000024a1   Thumb Code   126  timers.o(.text.prvCheckForValidListAndQueue)
-    [Anonymous Symbol]                       0x000024a0   Section        0  timers.o(.text.prvCheckForValidListAndQueue)
-    prvCheckTasksWaitingTermination          0x00002521   Thumb Code    90  tasks.o(.text.prvCheckTasksWaitingTermination)
-    [Anonymous Symbol]                       0x00002520   Section        0  tasks.o(.text.prvCheckTasksWaitingTermination)
-    prvCopyDataFromQueue                     0x0000257d   Thumb Code    66  queue.o(.text.prvCopyDataFromQueue)
-    [Anonymous Symbol]                       0x0000257c   Section        0  queue.o(.text.prvCopyDataFromQueue)
-    prvCopyDataToQueue                       0x000025c1   Thumb Code   204  queue.o(.text.prvCopyDataToQueue)
-    [Anonymous Symbol]                       0x000025c0   Section        0  queue.o(.text.prvCopyDataToQueue)
-    prvCreateIdleTasks                       0x0000268d   Thumb Code   216  tasks.o(.text.prvCreateIdleTasks)
-    [Anonymous Symbol]                       0x0000268c   Section        0  tasks.o(.text.prvCreateIdleTasks)
-    prvCreateStaticTask                      0x00002765   Thumb Code   170  tasks.o(.text.prvCreateStaticTask)
-    [Anonymous Symbol]                       0x00002764   Section        0  tasks.o(.text.prvCreateStaticTask)
-    prvCreateTask                            0x00002811   Thumb Code   142  tasks.o(.text.prvCreateTask)
-    [Anonymous Symbol]                       0x00002810   Section        0  tasks.o(.text.prvCreateTask)
-    prvDeleteTCB                             0x000028a1   Thumb Code    80  tasks.o(.text.prvDeleteTCB)
-    [Anonymous Symbol]                       0x000028a0   Section        0  tasks.o(.text.prvDeleteTCB)
-    prvGetHighestPriorityOfWaitToReceiveList 0x000028f1   Thumb Code    38  queue.o(.text.prvGetHighestPriorityOfWaitToReceiveList)
-    [Anonymous Symbol]                       0x000028f0   Section        0  queue.o(.text.prvGetHighestPriorityOfWaitToReceiveList)
-    prvGetNextExpireTime                     0x00002919   Thumb Code    64  timers.o(.text.prvGetNextExpireTime)
-    [Anonymous Symbol]                       0x00002918   Section        0  timers.o(.text.prvGetNextExpireTime)
-    prvHeapInit                              0x00002959   Thumb Code   170  heap_4.o(.text.prvHeapInit)
-    [Anonymous Symbol]                       0x00002958   Section        0  heap_4.o(.text.prvHeapInit)
-    prvIdleTask                              0x00002a05   Thumb Code    56  tasks.o(.text.prvIdleTask)
-    [Anonymous Symbol]                       0x00002a04   Section        0  tasks.o(.text.prvIdleTask)
-    prvInitialiseMutex                       0x00002a3d   Thumb Code    44  queue.o(.text.prvInitialiseMutex)
-    [Anonymous Symbol]                       0x00002a3c   Section        0  queue.o(.text.prvInitialiseMutex)
-    prvInitialiseNewQueue                    0x00002a69   Thumb Code    72  queue.o(.text.prvInitialiseNewQueue)
-    [Anonymous Symbol]                       0x00002a68   Section        0  queue.o(.text.prvInitialiseNewQueue)
-    prvInitialiseNewTask                     0x00002ab1   Thumb Code   264  tasks.o(.text.prvInitialiseNewTask)
-    [Anonymous Symbol]                       0x00002ab0   Section        0  tasks.o(.text.prvInitialiseNewTask)
-    prvInitialiseTaskLists                   0x00002bb9   Thumb Code   142  tasks.o(.text.prvInitialiseTaskLists)
-    [Anonymous Symbol]                       0x00002bb8   Section        0  tasks.o(.text.prvInitialiseTaskLists)
-    prvInsertBlockIntoFreeList               0x00002c49   Thumb Code   280  heap_4.o(.text.prvInsertBlockIntoFreeList)
-    [Anonymous Symbol]                       0x00002c48   Section        0  heap_4.o(.text.prvInsertBlockIntoFreeList)
-    prvInsertTimerInActiveList               0x00002d61   Thumb Code   134  timers.o(.text.prvInsertTimerInActiveList)
-    [Anonymous Symbol]                       0x00002d60   Section        0  timers.o(.text.prvInsertTimerInActiveList)
-    prvIsQueueEmpty                          0x00002de9   Thumb Code    40  queue.o(.text.prvIsQueueEmpty)
-    [Anonymous Symbol]                       0x00002de8   Section        0  queue.o(.text.prvIsQueueEmpty)
-    prvIsQueueFull                           0x00002e11   Thumb Code    46  queue.o(.text.prvIsQueueFull)
-    [Anonymous Symbol]                       0x00002e10   Section        0  queue.o(.text.prvIsQueueFull)
-    prvPortStartFirstTask                    0x00002e41   Thumb Code    40  port.o(.text.prvPortStartFirstTask)
-    [Anonymous Symbol]                       0x00002e40   Section        0  port.o(.text.prvPortStartFirstTask)
-    prvProcessExpiredTimer                   0x00002e69   Thumb Code    84  timers.o(.text.prvProcessExpiredTimer)
-    [Anonymous Symbol]                       0x00002e68   Section        0  timers.o(.text.prvProcessExpiredTimer)
-    prvProcessReceivedCommands               0x00002ebd   Thumb Code   378  timers.o(.text.prvProcessReceivedCommands)
-    [Anonymous Symbol]                       0x00002ebc   Section        0  timers.o(.text.prvProcessReceivedCommands)
-    prvProcessTimerOrBlockTask               0x00003039   Thumb Code   154  timers.o(.text.prvProcessTimerOrBlockTask)
-    [Anonymous Symbol]                       0x00003038   Section        0  timers.o(.text.prvProcessTimerOrBlockTask)
-    prvReloadTimer                           0x000030d5   Thumb Code    52  timers.o(.text.prvReloadTimer)
-    [Anonymous Symbol]                       0x000030d4   Section        0  timers.o(.text.prvReloadTimer)
-    prvResetNextTaskUnblockTime              0x00003109   Thumb Code    60  tasks.o(.text.prvResetNextTaskUnblockTime)
-    [Anonymous Symbol]                       0x00003108   Section        0  tasks.o(.text.prvResetNextTaskUnblockTime)
-    prvSampleTimeNow                         0x00003145   Thumb Code    68  timers.o(.text.prvSampleTimeNow)
-    [Anonymous Symbol]                       0x00003144   Section        0  timers.o(.text.prvSampleTimeNow)
-    prvSwitchTimerLists                      0x00003189   Thumb Code    82  timers.o(.text.prvSwitchTimerLists)
-    [Anonymous Symbol]                       0x00003188   Section        0  timers.o(.text.prvSwitchTimerLists)
-    prvTaskExitError                         0x000031dd   Thumb Code    62  port.o(.text.prvTaskExitError)
-    [Anonymous Symbol]                       0x000031dc   Section        0  port.o(.text.prvTaskExitError)
-    prvTimerTask                             0x0000321d   Thumb Code    30  timers.o(.text.prvTimerTask)
-    [Anonymous Symbol]                       0x0000321c   Section        0  timers.o(.text.prvTimerTask)
-    prvUnlockQueue                           0x0000323d   Thumb Code   174  queue.o(.text.prvUnlockQueue)
-    [Anonymous Symbol]                       0x0000323c   Section        0  queue.o(.text.prvUnlockQueue)
-    [Anonymous Symbol]                       0x000032ec   Section        0  heap_4.o(.text.pvPortMalloc)
-    [Anonymous Symbol]                       0x000035a4   Section        0  tasks.o(.text.pvTaskIncrementMutexHeldCount)
-    [Anonymous Symbol]                       0x000035c8   Section        0  port.o(.text.pxPortInitialiseStack)
-    [Anonymous Symbol]                       0x00003628   Section        0  list.o(.text.uxListRemove)
-    [Anonymous Symbol]                       0x00003670   Section        0  tasks.o(.text.uxTaskGetNumberOfTasks)
-    [Anonymous Symbol]                       0x0000367c   Section        0  tasks.o(.text.vApplicationGetIdleTaskMemory)
-    [Anonymous Symbol]                       0x000036a8   Section        0  tasks.o(.text.vApplicationGetTimerTaskMemory)
-    [Anonymous Symbol]                       0x000036d4   Section        0  cmsis_os2.o(.text.vApplicationStackOverflowHook)
-    [Anonymous Symbol]                       0x000036e4   Section        0  main.o(.text.vGateControlTask)
-    [Anonymous Symbol]                       0x0000385c   Section        0  main.o(.text.vInputTask)
-    [Anonymous Symbol]                       0x000039b8   Section        0  main.o(.text.vLedControlTask)
-    [Anonymous Symbol]                       0x00003a3c   Section        0  list.o(.text.vListInitialise)
-    [Anonymous Symbol]                       0x00003a6c   Section        0  list.o(.text.vListInitialiseItem)
-    [Anonymous Symbol]                       0x00003a7c   Section        0  list.o(.text.vListInsert)
-    vPortEnableVFP                           0x00003ae9   Thumb Code    20  port.o(.text.vPortEnableVFP)
-    [Anonymous Symbol]                       0x00003ae8   Section        0  port.o(.text.vPortEnableVFP)
-    [Anonymous Symbol]                       0x00003afc   Section        0  port.o(.text.vPortEnterCritical)
-    [Anonymous Symbol]                       0x00003b44   Section        0  port.o(.text.vPortExitCritical)
-    [Anonymous Symbol]                       0x00003b80   Section        0  heap_4.o(.text.vPortFree)
-    [Anonymous Symbol]                       0x00003c60   Section        0  port.o(.text.vPortSetupTimerInterrupt)
-    [Anonymous Symbol]                       0x00003ca4   Section        0  port.o(.text.vPortValidateInterruptPriority)
-    [Anonymous Symbol]                       0x00003d0c   Section        0  basic_io.o(.text.vPrintString)
-    [Anonymous Symbol]                       0x00003d3c   Section        0  queue.o(.text.vQueueDelete)
-    [Anonymous Symbol]                       0x00003d6c   Section        0  queue.o(.text.vQueueWaitForMessageRestricted)
-    [Anonymous Symbol]                       0x00003dd0   Section        0  main.o(.text.vSafetyTask)
-    [Anonymous Symbol]                       0x00003e2c   Section        0  tasks.o(.text.vTaskDelay)
-    [Anonymous Symbol]                       0x00003e90   Section        0  tasks.o(.text.vTaskInternalSetTimeOutState)
-    [Anonymous Symbol]                       0x00003eb4   Section        0  tasks.o(.text.vTaskMissedYield)
-    [Anonymous Symbol]                       0x00003ec4   Section        0  tasks.o(.text.vTaskPlaceOnEventList)
-    [Anonymous Symbol]                       0x00003ef8   Section        0  tasks.o(.text.vTaskPlaceOnEventListRestricted)
-    [Anonymous Symbol]                       0x00003f6c   Section        0  tasks.o(.text.vTaskPriorityDisinheritAfterTimeout)
-    [Anonymous Symbol]                       0x000040d4   Section        0  tasks.o(.text.vTaskStartScheduler)
-    [Anonymous Symbol]                       0x00004158   Section        0  tasks.o(.text.vTaskSuspendAll)
-    __tagsym$$used.0                         0x00004168   Number         0  tasks.o(.text.vTaskSwitchContext)
-    [Anonymous Symbol]                       0x00004168   Section        0  tasks.o(.text.vTaskSwitchContext)
-    [Anonymous Symbol]                       0x000042a0   Section        0  port.o(.text.xPortStartScheduler)
-    [Anonymous Symbol]                       0x0000444c   Section        0  port.o(.text.xPortSysTickHandler)
-    [Anonymous Symbol]                       0x0000448c   Section        0  queue.o(.text.xQueueCreateMutex)
-    [Anonymous Symbol]                       0x000044b4   Section        0  queue.o(.text.xQueueCreateMutexStatic)
-    [Anonymous Symbol]                       0x000044e8   Section        0  queue.o(.text.xQueueGenericCreate)
-    [Anonymous Symbol]                       0x0000457c   Section        0  queue.o(.text.xQueueGenericCreateStatic)
-    [Anonymous Symbol]                       0x0000461c   Section        0  queue.o(.text.xQueueGenericReset)
-    [Anonymous Symbol]                       0x00004708   Section        0  queue.o(.text.xQueueGenericSend)
-    [Anonymous Symbol]                       0x000048fc   Section        0  queue.o(.text.xQueueGiveFromISR)
-    [Anonymous Symbol]                       0x00004a20   Section        0  queue.o(.text.xQueueReceive)
-    [Anonymous Symbol]                       0x00004bd4   Section        0  queue.o(.text.xQueueSemaphoreTake)
-    [Anonymous Symbol]                       0x00004dbc   Section        0  tasks.o(.text.xTaskCheckForTimeOut)
-    [Anonymous Symbol]                       0x00004e9c   Section        0  tasks.o(.text.xTaskCreate)
-    [Anonymous Symbol]                       0x00004ef0   Section        0  tasks.o(.text.xTaskCreateStatic)
-    [Anonymous Symbol]                       0x00004f4c   Section        0  tasks.o(.text.xTaskGetSchedulerState)
-    [Anonymous Symbol]                       0x00004f84   Section        0  tasks.o(.text.xTaskGetTickCount)
-    [Anonymous Symbol]                       0x00004f98   Section        0  tasks.o(.text.xTaskIncrementTick)
-    [Anonymous Symbol]                       0x00005210   Section        0  tasks.o(.text.xTaskPriorityDisinherit)
-    [Anonymous Symbol]                       0x00005330   Section        0  tasks.o(.text.xTaskPriorityInherit)
-    [Anonymous Symbol]                       0x0000548c   Section        0  tasks.o(.text.xTaskRemoveFromEventList)
-    [Anonymous Symbol]                       0x00005630   Section        0  tasks.o(.text.xTaskResumeAll)
-    [Anonymous Symbol]                       0x00005878   Section        0  timers.o(.text.xTimerCreateTimerTask)
-    CL$$btod_d2e                             0x000058fe   Section       62  btod.o(CL$$btod_d2e)
-    CL$$btod_d2e_denorm_low                  0x0000593c   Section       70  btod.o(CL$$btod_d2e_denorm_low)
-    CL$$btod_d2e_norm_op1                    0x00005982   Section       96  btod.o(CL$$btod_d2e_norm_op1)
-    CL$$btod_div_common                      0x000059e4   Section      824  btod.o(CL$$btod_div_common)
-    CL$$btod_e2e                             0x00005d1c   Section      220  btod.o(CL$$btod_e2e)
-    CL$$btod_ediv                            0x00005df8   Section       42  btod.o(CL$$btod_ediv)
-    CL$$btod_emul                            0x00005e22   Section       42  btod.o(CL$$btod_emul)
-    CL$$btod_mult_common                     0x00005e4c   Section      580  btod.o(CL$$btod_mult_common)
-    i.__ARM_fpclassify                       0x00006090   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i._is_digit                              0x000060c0   Section        0  __printf_wp.o(i._is_digit)
-    locale$$code                             0x000060d0   Section       44  lc_numeric_c.o(locale$$code)
-    locale$$code                             0x000060fc   Section       44  lc_ctype_c.o(locale$$code)
-    $v0                                      0x00006128   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x00006128   Section       26  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x00006142   Number         0  printf1.o(x$fpl$printf1)
-    x$fpl$printf1                            0x00006142   Section        4  printf1.o(x$fpl$printf1)
-    $v0                                      0x00006146   Number         0  printf2.o(x$fpl$printf2)
-    x$fpl$printf2                            0x00006146   Section        4  printf2.o(x$fpl$printf2)
-    x$fpl$usenofp                            0x0000614a   Section        0  usenofp.o(x$fpl$usenofp)
-    initial_mbstate                          0x0000614c   Data           8  _printf_wctomb.o(.constdata)
-    .constdata                               0x0000614c   Section        8  _printf_wctomb.o(.constdata)
-    uc_hextab                                0x00006154   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    .constdata                               0x00006154   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
-    lc_hextab                                0x00006168   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
-    maptable                                 0x0000617c   Data          17  __printf_flags_ss_wp.o(.constdata)
-    .constdata                               0x0000617c   Section       17  __printf_flags_ss_wp.o(.constdata)
-    lc_hextab                                0x0000618d   Data          19  _printf_fp_hex.o(.constdata)
-    .constdata                               0x0000618d   Section       38  _printf_fp_hex.o(.constdata)
-    uc_hextab                                0x000061a0   Data          19  _printf_fp_hex.o(.constdata)
-    tenpwrs_x                                0x000061b4   Data          60  bigflt0.o(.constdata)
-    .constdata                               0x000061b4   Section      148  bigflt0.o(.constdata)
-    tenpwrs_i                                0x000061f0   Data          64  bigflt0.o(.constdata)
-    .L.str.1                                 0x00006248   Data          34  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00006248   Section        0  main.o(.rodata.str1.1)
-    .L.str.7                                 0x0000626a   Data          33  main.o(.rodata.str1.1)
-    .L.str.6                                 0x0000628b   Data          29  main.o(.rodata.str1.1)
-    .L.str.3                                 0x000062a8   Data          23  main.o(.rodata.str1.1)
-    .L.str.5                                 0x000062bf   Data          27  main.o(.rodata.str1.1)
-    .L.str.2                                 0x000062da   Data          20  main.o(.rodata.str1.1)
-    .L.str                                   0x000062ee   Data          21  main.o(.rodata.str1.1)
-    .L.str.4                                 0x00006303   Data          41  main.o(.rodata.str1.1)
-    .L.str.11                                0x0000632c   Data           4  main.o(.rodata.str1.1)
-    .L.str.10                                0x00006330   Data          13  main.o(.rodata.str1.1)
-    .L.str.9                                 0x0000633d   Data           6  main.o(.rodata.str1.1)
-    .L.str.8                                 0x00006343   Data           7  main.o(.rodata.str1.1)
-    .L.str                                   0x0000634a   Data           3  basic_io.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x0000634a   Section        0  basic_io.o(.rodata.str1.1)
-    .L.str                                   0x0000634d   Data           5  tasks.o(.rodata.str1.1)
-    .L.str.1                                 0x0000634d   Data           8  basic_io.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x0000634d   Section        0  tasks.o(.rodata.str1.1)
-    .L.str                                   0x00006352   Data           8  timers.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00006352   Section        0  timers.o(.rodata.str1.1)
-    .L.str.2                                 0x00006355   Data          12  basic_io.o(.rodata.str1.1)
-    uxTopUsedPriority                        0x0000635c   Data           4  tasks.o(.rodata.uxTopUsedPriority)
-    [Anonymous Symbol]                       0x0000635c   Section        0  tasks.o(.rodata.uxTopUsedPriority)
-    locale$$data                             0x00006380   Section       28  lc_numeric_c.o(locale$$data)
-    __lcnum_c_name                           0x00006384   Data           2  lc_numeric_c.o(locale$$data)
-    __lcnum_c_start                          0x0000638c   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_point                          0x00006398   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_thousands                      0x0000639a   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_grouping                       0x0000639b   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_end                            0x0000639c   Data           0  lc_numeric_c.o(locale$$data)
-    locale$$data                             0x0000639c   Section      272  lc_ctype_c.o(locale$$data)
-    __lcctype_c_name                         0x000063a0   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x000063a8   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x000064ac   Data           0  lc_ctype_c.o(locale$$data)
+    [Anonymous Symbol]                       0x000017b0   Section        0  main.o(.text.GPIOB_Handler)
+    [Anonymous Symbol]                       0x00001858   Section        0  main.o(.text.GPIOD_Handler)
+    [Anonymous Symbol]                       0x000018fc   Section        0  main.o(.text.GPIOE_Handler)
+    [Anonymous Symbol]                       0x0000198c   Section        0  main.o(.text.GPIOF_Handler)
+    GPIO_Init                                0x000019ed   Thumb Code   866  main.o(.text.GPIO_Init)
+    [Anonymous Symbol]                       0x000019ec   Section        0  main.o(.text.GPIO_Init)
+    GateState_CompareAndSet                  0x00001d51   Thumb Code   110  main.o(.text.GateState_CompareAndSet)
+    [Anonymous Symbol]                       0x00001d50   Section        0  main.o(.text.GateState_CompareAndSet)
+    GateState_Get                            0x00001dc1   Thumb Code    60  main.o(.text.GateState_Get)
+    [Anonymous Symbol]                       0x00001dc0   Section        0  main.o(.text.GateState_Get)
+    GateState_Set                            0x00001dfd   Thumb Code    60  main.o(.text.GateState_Set)
+    [Anonymous Symbol]                       0x00001dfc   Section        0  main.o(.text.GateState_Set)
+    ITM_SendChar                             0x00001e39   Thumb Code    68  retarget.o(.text.ITM_SendChar)
+    [Anonymous Symbol]                       0x00001e38   Section        0  retarget.o(.text.ITM_SendChar)
+    [Anonymous Symbol]                       0x00001e7c   Section        0  main.o(.text.IsButtonStillPressedByID)
+    [Anonymous Symbol]                       0x00001f40   Section        0  main.o(.text.LED_AllOff)
+    [Anonymous Symbol]                       0x00001f54   Section        0  main.o(.text.LED_Set)
+    [Anonymous Symbol]                       0x00001f94   Section        0  port.o(.text.PendSV_Handler)
+    [Anonymous Symbol]                       0x00001ff4   Section        0  port.o(.text.SVC_Handler)
+    [Anonymous Symbol]                       0x00002014   Section        0  cmsis_os2.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x00002034   Section        0  system_tm4c123.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x00002140   Section        0  retarget.o(.text.__write)
+    __tagsym$$used.1                         0x00002174   Number         0  clib_os.o(.text._mutex_acquire)
+    [Anonymous Symbol]                       0x00002174   Section        0  clib_os.o(.text._mutex_acquire)
+    __tagsym$$used.3                         0x0000219c   Number         0  clib_os.o(.text._mutex_free)
+    [Anonymous Symbol]                       0x0000219c   Section        0  clib_os.o(.text._mutex_free)
+    __tagsym$$used.0                         0x000021f0   Number         0  clib_os.o(.text._mutex_initialize)
+    [Anonymous Symbol]                       0x000021f0   Section        0  clib_os.o(.text._mutex_initialize)
+    __tagsym$$used.2                         0x00002298   Number         0  clib_os.o(.text._mutex_release)
+    [Anonymous Symbol]                       0x00002298   Section        0  clib_os.o(.text._mutex_release)
+    [Anonymous Symbol]                       0x000022c4   Section        0  clib_os.o(.text._platform_post_stackheap_init)
+    [Anonymous Symbol]                       0x000022c8   Section        0  retarget.o(.text._sys_exit)
+    [Anonymous Symbol]                       0x000022d4   Section        0  consoleprint.o(.text.consoleprint)
+    is_thread_mode                           0x000022f5   Thumb Code    32  clib_os.o(.text.is_thread_mode)
+    [Anonymous Symbol]                       0x000022f4   Section        0  clib_os.o(.text.is_thread_mode)
+    [Anonymous Symbol]                       0x00002314   Section        0  main.o(.text.main)
+    os_kernel_is_active                      0x00002431   Thumb Code    32  clib_os.o(.text.os_kernel_is_active)
+    [Anonymous Symbol]                       0x00002430   Section        0  clib_os.o(.text.os_kernel_is_active)
+    prvAddCurrentTaskToDelayedList           0x00002451   Thumb Code   270  tasks.o(.text.prvAddCurrentTaskToDelayedList)
+    [Anonymous Symbol]                       0x00002450   Section        0  tasks.o(.text.prvAddCurrentTaskToDelayedList)
+    prvAddNewTaskToReadyList                 0x00002561   Thumb Code   368  tasks.o(.text.prvAddNewTaskToReadyList)
+    [Anonymous Symbol]                       0x00002560   Section        0  tasks.o(.text.prvAddNewTaskToReadyList)
+    prvCheckForValidListAndQueue             0x000026d1   Thumb Code   126  timers.o(.text.prvCheckForValidListAndQueue)
+    [Anonymous Symbol]                       0x000026d0   Section        0  timers.o(.text.prvCheckForValidListAndQueue)
+    prvCheckTasksWaitingTermination          0x00002751   Thumb Code    90  tasks.o(.text.prvCheckTasksWaitingTermination)
+    [Anonymous Symbol]                       0x00002750   Section        0  tasks.o(.text.prvCheckTasksWaitingTermination)
+    prvCopyDataFromQueue                     0x000027ad   Thumb Code    66  queue.o(.text.prvCopyDataFromQueue)
+    [Anonymous Symbol]                       0x000027ac   Section        0  queue.o(.text.prvCopyDataFromQueue)
+    prvCopyDataToQueue                       0x000027f1   Thumb Code   204  queue.o(.text.prvCopyDataToQueue)
+    [Anonymous Symbol]                       0x000027f0   Section        0  queue.o(.text.prvCopyDataToQueue)
+    prvCreateIdleTasks                       0x000028bd   Thumb Code   216  tasks.o(.text.prvCreateIdleTasks)
+    [Anonymous Symbol]                       0x000028bc   Section        0  tasks.o(.text.prvCreateIdleTasks)
+    prvCreateStaticTask                      0x00002995   Thumb Code   170  tasks.o(.text.prvCreateStaticTask)
+    [Anonymous Symbol]                       0x00002994   Section        0  tasks.o(.text.prvCreateStaticTask)
+    prvCreateTask                            0x00002a41   Thumb Code   142  tasks.o(.text.prvCreateTask)
+    [Anonymous Symbol]                       0x00002a40   Section        0  tasks.o(.text.prvCreateTask)
+    prvDeleteTCB                             0x00002ad1   Thumb Code    80  tasks.o(.text.prvDeleteTCB)
+    [Anonymous Symbol]                       0x00002ad0   Section        0  tasks.o(.text.prvDeleteTCB)
+    prvGetHighestPriorityOfWaitToReceiveList 0x00002b21   Thumb Code    38  queue.o(.text.prvGetHighestPriorityOfWaitToReceiveList)
+    [Anonymous Symbol]                       0x00002b20   Section        0  queue.o(.text.prvGetHighestPriorityOfWaitToReceiveList)
+    prvGetNextExpireTime                     0x00002b49   Thumb Code    64  timers.o(.text.prvGetNextExpireTime)
+    [Anonymous Symbol]                       0x00002b48   Section        0  timers.o(.text.prvGetNextExpireTime)
+    prvHeapInit                              0x00002b89   Thumb Code   170  heap_4.o(.text.prvHeapInit)
+    [Anonymous Symbol]                       0x00002b88   Section        0  heap_4.o(.text.prvHeapInit)
+    prvIdleTask                              0x00002c35   Thumb Code    56  tasks.o(.text.prvIdleTask)
+    [Anonymous Symbol]                       0x00002c34   Section        0  tasks.o(.text.prvIdleTask)
+    prvInitialiseMutex                       0x00002c6d   Thumb Code    44  queue.o(.text.prvInitialiseMutex)
+    [Anonymous Symbol]                       0x00002c6c   Section        0  queue.o(.text.prvInitialiseMutex)
+    prvInitialiseNewQueue                    0x00002c99   Thumb Code    72  queue.o(.text.prvInitialiseNewQueue)
+    [Anonymous Symbol]                       0x00002c98   Section        0  queue.o(.text.prvInitialiseNewQueue)
+    prvInitialiseNewTask                     0x00002ce1   Thumb Code   264  tasks.o(.text.prvInitialiseNewTask)
+    [Anonymous Symbol]                       0x00002ce0   Section        0  tasks.o(.text.prvInitialiseNewTask)
+    prvInitialiseTaskLists                   0x00002de9   Thumb Code   142  tasks.o(.text.prvInitialiseTaskLists)
+    [Anonymous Symbol]                       0x00002de8   Section        0  tasks.o(.text.prvInitialiseTaskLists)
+    prvInsertBlockIntoFreeList               0x00002e79   Thumb Code   280  heap_4.o(.text.prvInsertBlockIntoFreeList)
+    [Anonymous Symbol]                       0x00002e78   Section        0  heap_4.o(.text.prvInsertBlockIntoFreeList)
+    prvInsertTimerInActiveList               0x00002f91   Thumb Code   134  timers.o(.text.prvInsertTimerInActiveList)
+    [Anonymous Symbol]                       0x00002f90   Section        0  timers.o(.text.prvInsertTimerInActiveList)
+    prvIsQueueEmpty                          0x00003019   Thumb Code    40  queue.o(.text.prvIsQueueEmpty)
+    [Anonymous Symbol]                       0x00003018   Section        0  queue.o(.text.prvIsQueueEmpty)
+    prvIsQueueFull                           0x00003041   Thumb Code    46  queue.o(.text.prvIsQueueFull)
+    [Anonymous Symbol]                       0x00003040   Section        0  queue.o(.text.prvIsQueueFull)
+    prvPortStartFirstTask                    0x00003071   Thumb Code    40  port.o(.text.prvPortStartFirstTask)
+    [Anonymous Symbol]                       0x00003070   Section        0  port.o(.text.prvPortStartFirstTask)
+    prvProcessExpiredTimer                   0x00003099   Thumb Code    84  timers.o(.text.prvProcessExpiredTimer)
+    [Anonymous Symbol]                       0x00003098   Section        0  timers.o(.text.prvProcessExpiredTimer)
+    prvProcessReceivedCommands               0x000030ed   Thumb Code   378  timers.o(.text.prvProcessReceivedCommands)
+    [Anonymous Symbol]                       0x000030ec   Section        0  timers.o(.text.prvProcessReceivedCommands)
+    prvProcessTimerOrBlockTask               0x00003269   Thumb Code   154  timers.o(.text.prvProcessTimerOrBlockTask)
+    [Anonymous Symbol]                       0x00003268   Section        0  timers.o(.text.prvProcessTimerOrBlockTask)
+    prvReloadTimer                           0x00003305   Thumb Code    52  timers.o(.text.prvReloadTimer)
+    [Anonymous Symbol]                       0x00003304   Section        0  timers.o(.text.prvReloadTimer)
+    prvResetNextTaskUnblockTime              0x00003339   Thumb Code    60  tasks.o(.text.prvResetNextTaskUnblockTime)
+    [Anonymous Symbol]                       0x00003338   Section        0  tasks.o(.text.prvResetNextTaskUnblockTime)
+    prvSampleTimeNow                         0x00003375   Thumb Code    68  timers.o(.text.prvSampleTimeNow)
+    [Anonymous Symbol]                       0x00003374   Section        0  timers.o(.text.prvSampleTimeNow)
+    prvSwitchTimerLists                      0x000033b9   Thumb Code    82  timers.o(.text.prvSwitchTimerLists)
+    [Anonymous Symbol]                       0x000033b8   Section        0  timers.o(.text.prvSwitchTimerLists)
+    prvTaskExitError                         0x0000340d   Thumb Code    62  port.o(.text.prvTaskExitError)
+    [Anonymous Symbol]                       0x0000340c   Section        0  port.o(.text.prvTaskExitError)
+    prvTimerTask                             0x0000344d   Thumb Code    30  timers.o(.text.prvTimerTask)
+    [Anonymous Symbol]                       0x0000344c   Section        0  timers.o(.text.prvTimerTask)
+    prvUnlockQueue                           0x0000346d   Thumb Code   174  queue.o(.text.prvUnlockQueue)
+    [Anonymous Symbol]                       0x0000346c   Section        0  queue.o(.text.prvUnlockQueue)
+    [Anonymous Symbol]                       0x0000351c   Section        0  heap_4.o(.text.pvPortMalloc)
+    [Anonymous Symbol]                       0x000037d4   Section        0  tasks.o(.text.pvTaskIncrementMutexHeldCount)
+    [Anonymous Symbol]                       0x000037f8   Section        0  port.o(.text.pxPortInitialiseStack)
+    [Anonymous Symbol]                       0x00003858   Section        0  list.o(.text.uxListRemove)
+    [Anonymous Symbol]                       0x000038a0   Section        0  tasks.o(.text.uxTaskGetNumberOfTasks)
+    [Anonymous Symbol]                       0x000038ac   Section        0  tasks.o(.text.vApplicationGetIdleTaskMemory)
+    [Anonymous Symbol]                       0x000038d8   Section        0  tasks.o(.text.vApplicationGetTimerTaskMemory)
+    [Anonymous Symbol]                       0x00003904   Section        0  cmsis_os2.o(.text.vApplicationStackOverflowHook)
+    [Anonymous Symbol]                       0x00003914   Section        0  main.o(.text.vGateControlTask)
+    [Anonymous Symbol]                       0x00003a80   Section        0  main.o(.text.vInputTask)
+    [Anonymous Symbol]                       0x00003bf0   Section        0  main.o(.text.vLedControlTask)
+    [Anonymous Symbol]                       0x00003c74   Section        0  list.o(.text.vListInitialise)
+    [Anonymous Symbol]                       0x00003ca4   Section        0  list.o(.text.vListInitialiseItem)
+    [Anonymous Symbol]                       0x00003cb4   Section        0  list.o(.text.vListInsert)
+    vPortEnableVFP                           0x00003d21   Thumb Code    20  port.o(.text.vPortEnableVFP)
+    [Anonymous Symbol]                       0x00003d20   Section        0  port.o(.text.vPortEnableVFP)
+    [Anonymous Symbol]                       0x00003d34   Section        0  port.o(.text.vPortEnterCritical)
+    [Anonymous Symbol]                       0x00003d7c   Section        0  port.o(.text.vPortExitCritical)
+    [Anonymous Symbol]                       0x00003db8   Section        0  heap_4.o(.text.vPortFree)
+    [Anonymous Symbol]                       0x00003e98   Section        0  port.o(.text.vPortSetupTimerInterrupt)
+    [Anonymous Symbol]                       0x00003edc   Section        0  port.o(.text.vPortValidateInterruptPriority)
+    [Anonymous Symbol]                       0x00003f44   Section        0  basic_io.o(.text.vPrintString)
+    [Anonymous Symbol]                       0x00003f74   Section        0  queue.o(.text.vQueueDelete)
+    [Anonymous Symbol]                       0x00003fa4   Section        0  queue.o(.text.vQueueWaitForMessageRestricted)
+    [Anonymous Symbol]                       0x00004008   Section        0  main.o(.text.vSafetyTask)
+    [Anonymous Symbol]                       0x00004058   Section        0  tasks.o(.text.vTaskDelay)
+    [Anonymous Symbol]                       0x000040bc   Section        0  tasks.o(.text.vTaskInternalSetTimeOutState)
+    [Anonymous Symbol]                       0x000040e0   Section        0  tasks.o(.text.vTaskMissedYield)
+    [Anonymous Symbol]                       0x000040f0   Section        0  tasks.o(.text.vTaskPlaceOnEventList)
+    [Anonymous Symbol]                       0x00004124   Section        0  tasks.o(.text.vTaskPlaceOnEventListRestricted)
+    [Anonymous Symbol]                       0x00004198   Section        0  tasks.o(.text.vTaskPriorityDisinheritAfterTimeout)
+    [Anonymous Symbol]                       0x00004300   Section        0  tasks.o(.text.vTaskStartScheduler)
+    [Anonymous Symbol]                       0x00004384   Section        0  tasks.o(.text.vTaskSuspendAll)
+    __tagsym$$used.0                         0x00004394   Number         0  tasks.o(.text.vTaskSwitchContext)
+    [Anonymous Symbol]                       0x00004394   Section        0  tasks.o(.text.vTaskSwitchContext)
+    [Anonymous Symbol]                       0x000044cc   Section        0  port.o(.text.xPortStartScheduler)
+    [Anonymous Symbol]                       0x00004678   Section        0  port.o(.text.xPortSysTickHandler)
+    [Anonymous Symbol]                       0x000046b8   Section        0  queue.o(.text.xQueueCreateMutex)
+    [Anonymous Symbol]                       0x000046e0   Section        0  queue.o(.text.xQueueCreateMutexStatic)
+    [Anonymous Symbol]                       0x00004714   Section        0  queue.o(.text.xQueueGenericCreate)
+    [Anonymous Symbol]                       0x000047a8   Section        0  queue.o(.text.xQueueGenericCreateStatic)
+    [Anonymous Symbol]                       0x00004848   Section        0  queue.o(.text.xQueueGenericReset)
+    [Anonymous Symbol]                       0x00004934   Section        0  queue.o(.text.xQueueGenericSend)
+    [Anonymous Symbol]                       0x00004b28   Section        0  queue.o(.text.xQueueGenericSendFromISR)
+    [Anonymous Symbol]                       0x00004c74   Section        0  queue.o(.text.xQueueGiveFromISR)
+    [Anonymous Symbol]                       0x00004d98   Section        0  queue.o(.text.xQueueReceive)
+    [Anonymous Symbol]                       0x00004f4c   Section        0  queue.o(.text.xQueueSemaphoreTake)
+    [Anonymous Symbol]                       0x00005134   Section        0  tasks.o(.text.xTaskCheckForTimeOut)
+    [Anonymous Symbol]                       0x00005214   Section        0  tasks.o(.text.xTaskCreate)
+    [Anonymous Symbol]                       0x00005268   Section        0  tasks.o(.text.xTaskCreateStatic)
+    [Anonymous Symbol]                       0x000052c4   Section        0  tasks.o(.text.xTaskGetSchedulerState)
+    [Anonymous Symbol]                       0x000052fc   Section        0  tasks.o(.text.xTaskGetTickCount)
+    [Anonymous Symbol]                       0x00005310   Section        0  tasks.o(.text.xTaskIncrementTick)
+    [Anonymous Symbol]                       0x00005588   Section        0  tasks.o(.text.xTaskPriorityDisinherit)
+    [Anonymous Symbol]                       0x000056a8   Section        0  tasks.o(.text.xTaskPriorityInherit)
+    [Anonymous Symbol]                       0x00005804   Section        0  tasks.o(.text.xTaskRemoveFromEventList)
+    [Anonymous Symbol]                       0x000059a8   Section        0  tasks.o(.text.xTaskResumeAll)
+    [Anonymous Symbol]                       0x00005bf0   Section        0  timers.o(.text.xTimerCreateTimerTask)
+    CL$$btod_d2e                             0x00005c76   Section       62  btod.o(CL$$btod_d2e)
+    CL$$btod_d2e_denorm_low                  0x00005cb4   Section       70  btod.o(CL$$btod_d2e_denorm_low)
+    CL$$btod_d2e_norm_op1                    0x00005cfa   Section       96  btod.o(CL$$btod_d2e_norm_op1)
+    CL$$btod_div_common                      0x00005d5c   Section      824  btod.o(CL$$btod_div_common)
+    CL$$btod_e2e                             0x00006094   Section      220  btod.o(CL$$btod_e2e)
+    CL$$btod_ediv                            0x00006170   Section       42  btod.o(CL$$btod_ediv)
+    CL$$btod_emul                            0x0000619a   Section       42  btod.o(CL$$btod_emul)
+    CL$$btod_mult_common                     0x000061c4   Section      580  btod.o(CL$$btod_mult_common)
+    i.__ARM_fpclassify                       0x00006408   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i._is_digit                              0x00006438   Section        0  __printf_wp.o(i._is_digit)
+    locale$$code                             0x00006448   Section       44  lc_numeric_c.o(locale$$code)
+    locale$$code                             0x00006474   Section       44  lc_ctype_c.o(locale$$code)
+    $v0                                      0x000064a0   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x000064a0   Section       26  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x000064ba   Number         0  printf1.o(x$fpl$printf1)
+    x$fpl$printf1                            0x000064ba   Section        4  printf1.o(x$fpl$printf1)
+    $v0                                      0x000064be   Number         0  printf2.o(x$fpl$printf2)
+    x$fpl$printf2                            0x000064be   Section        4  printf2.o(x$fpl$printf2)
+    x$fpl$usenofp                            0x000064c2   Section        0  usenofp.o(x$fpl$usenofp)
+    initial_mbstate                          0x000064c4   Data           8  _printf_wctomb.o(.constdata)
+    .constdata                               0x000064c4   Section        8  _printf_wctomb.o(.constdata)
+    uc_hextab                                0x000064cc   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    .constdata                               0x000064cc   Section       40  _printf_hex_int_ll_ptr.o(.constdata)
+    lc_hextab                                0x000064e0   Data          20  _printf_hex_int_ll_ptr.o(.constdata)
+    maptable                                 0x000064f4   Data          17  __printf_flags_ss_wp.o(.constdata)
+    .constdata                               0x000064f4   Section       17  __printf_flags_ss_wp.o(.constdata)
+    lc_hextab                                0x00006505   Data          19  _printf_fp_hex.o(.constdata)
+    .constdata                               0x00006505   Section       38  _printf_fp_hex.o(.constdata)
+    uc_hextab                                0x00006518   Data          19  _printf_fp_hex.o(.constdata)
+    tenpwrs_x                                0x0000652c   Data          60  bigflt0.o(.constdata)
+    .constdata                               0x0000652c   Section      148  bigflt0.o(.constdata)
+    tenpwrs_i                                0x00006568   Data          64  bigflt0.o(.constdata)
+    .L.str                                   0x000065c0   Data          34  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x000065c0   Section        0  main.o(.rodata.str1.1)
+    .L.str.8                                 0x000065e2   Data          33  main.o(.rodata.str1.1)
+    .L.str.7                                 0x00006603   Data          29  main.o(.rodata.str1.1)
+    .L.str.3                                 0x00006620   Data          16  main.o(.rodata.str1.1)
+    .L.str.1                                 0x00006630   Data          18  main.o(.rodata.str1.1)
+    .L.str.4                                 0x00006642   Data          16  main.o(.rodata.str1.1)
+    .L.str.2                                 0x00006652   Data          18  main.o(.rodata.str1.1)
+    .L.str.6                                 0x00006664   Data          33  main.o(.rodata.str1.1)
+    .L.str.5                                 0x00006685   Data          14  main.o(.rodata.str1.1)
+    .L.str.12                                0x00006693   Data           4  main.o(.rodata.str1.1)
+    .L.str.11                                0x00006697   Data          13  main.o(.rodata.str1.1)
+    .L.str.10                                0x000066a4   Data           6  main.o(.rodata.str1.1)
+    .L.str.9                                 0x000066aa   Data           7  main.o(.rodata.str1.1)
+    .L.str                                   0x000066b1   Data           3  basic_io.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x000066b1   Section        0  basic_io.o(.rodata.str1.1)
+    .L.str                                   0x000066b4   Data           5  tasks.o(.rodata.str1.1)
+    .L.str.1                                 0x000066b4   Data           8  basic_io.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x000066b4   Section        0  tasks.o(.rodata.str1.1)
+    .L.str                                   0x000066b9   Data           8  timers.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x000066b9   Section        0  timers.o(.rodata.str1.1)
+    .L.str.2                                 0x000066bc   Data          12  basic_io.o(.rodata.str1.1)
+    uxTopUsedPriority                        0x000066c4   Data           4  tasks.o(.rodata.uxTopUsedPriority)
+    [Anonymous Symbol]                       0x000066c4   Section        0  tasks.o(.rodata.uxTopUsedPriority)
+    locale$$data                             0x000066e8   Section       28  lc_numeric_c.o(locale$$data)
+    __lcnum_c_name                           0x000066ec   Data           2  lc_numeric_c.o(locale$$data)
+    __lcnum_c_start                          0x000066f4   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_point                          0x00006700   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_thousands                      0x00006702   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_grouping                       0x00006703   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_end                            0x00006704   Data           0  lc_numeric_c.o(locale$$data)
+    locale$$data                             0x00006704   Section      272  lc_ctype_c.o(locale$$data)
+    __lcctype_c_name                         0x00006708   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x00006710   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x00006814   Data           0  lc_ctype_c.o(locale$$data)
     uxCriticalNesting                        0x20000008   Data           4  port.o(.data.uxCriticalNesting)
     [Anonymous Symbol]                       0x20000008   Section        0  port.o(.data.uxCriticalNesting)
     .bss                                     0x20000010   Section       96  libspace.o(.bss)
@@ -2739,13 +2755,13 @@ Image Symbol Table
     [Anonymous Symbol]                       0x20002d04   Section        0  timers.o(.bss.xTimerQueue)
     xTimerTaskHandle                         0x20002d08   Data           4  timers.o(.bss.xTimerTaskHandle)
     [Anonymous Symbol]                       0x20002d08   Section        0  timers.o(.bss.xTimerTaskHandle)
-    xYieldPendings                           0x20002d0c   Data           4  tasks.o(.bss.xYieldPendings)
-    [Anonymous Symbol]                       0x20002d0c   Section        0  tasks.o(.bss.xYieldPendings)
-    Heap_Mem                                 0x20002d10   Data           0  startup_tm4c123.o(HEAP)
-    Stack_Mem                                0x20002d10   Data         512  startup_tm4c123.o(STACK)
-    HEAP                                     0x20002d10   Section        0  startup_tm4c123.o(HEAP)
-    STACK                                    0x20002d10   Section      512  startup_tm4c123.o(STACK)
-    __initial_sp                             0x20002f10   Data           0  startup_tm4c123.o(STACK)
+    xYieldPendings                           0x20002d10   Data           4  tasks.o(.bss.xYieldPendings)
+    [Anonymous Symbol]                       0x20002d10   Section        0  tasks.o(.bss.xYieldPendings)
+    Heap_Mem                                 0x20002d18   Data           0  startup_tm4c123.o(HEAP)
+    Stack_Mem                                0x20002d18   Data         512  startup_tm4c123.o(STACK)
+    HEAP                                     0x20002d18   Section        0  startup_tm4c123.o(HEAP)
+    STACK                                    0x20002d18   Section      512  startup_tm4c123.o(STACK)
+    __initial_sp                             0x20002f18   Data           0  startup_tm4c123.o(STACK)
 
     Global Symbols
 
@@ -2871,9 +2887,7 @@ Image Symbol Table
     UsageFault_Handler                       0x000003d1   Thumb Code     2  startup_tm4c123.o(.text)
     DebugMon_Handler                         0x000003d5   Thumb Code     2  startup_tm4c123.o(.text)
     GPIOA_Handler                            0x000003db   Thumb Code     2  startup_tm4c123.o(.text)
-    GPIOB_Handler                            0x000003dd   Thumb Code     2  startup_tm4c123.o(.text)
     GPIOC_Handler                            0x000003df   Thumb Code     2  startup_tm4c123.o(.text)
-    GPIOD_Handler                            0x000003e1   Thumb Code     2  startup_tm4c123.o(.text)
     UART0_Handler                            0x000003e5   Thumb Code     2  startup_tm4c123.o(.text)
     UART1_Handler                            0x000003e7   Thumb Code     2  startup_tm4c123.o(.text)
     SSI0_Handler                             0x000003e9   Thumb Code     2  startup_tm4c123.o(.text)
@@ -3039,99 +3053,102 @@ Image Symbol Table
     __user_libspace                          0x00001791   Thumb Code     8  libspace.o(.text)
     __user_perproc_libspace                  0x00001791   Thumb Code     0  libspace.o(.text)
     _fp_init                                 0x00001799   Thumb Code    22  clib_os.o(.text.$Sub$$_fp_init)
-    GPIOE_Handler                            0x000017b1   Thumb Code   142  main.o(.text.GPIOE_Handler)
-    GPIOF_Handler                            0x00001841   Thumb Code    96  main.o(.text.GPIOF_Handler)
-    IsButtonStillPressedByID                 0x00001c65   Thumb Code   194  main.o(.text.IsButtonStillPressedByID)
-    LED_AllOff                               0x00001d29   Thumb Code    18  main.o(.text.LED_AllOff)
-    LED_Set                                  0x00001d3d   Thumb Code    64  main.o(.text.LED_Set)
-    PendSV_Handler                           0x00001d7d   Thumb Code    96  port.o(.text.PendSV_Handler)
-    SVC_Handler                              0x00001ddd   Thumb Code    32  port.o(.text.SVC_Handler)
-    SysTick_Handler                          0x00001dfd   Thumb Code    30  cmsis_os2.o(.text.SysTick_Handler)
-    SystemInit                               0x00001e1d   Thumb Code   268  system_tm4c123.o(.text.SystemInit)
-    __write                                  0x00001f29   Thumb Code    52  retarget.o(.text.__write)
-    _mutex_acquire                           0x00001f5d   Thumb Code    40  clib_os.o(.text._mutex_acquire)
-    _mutex_free                              0x00001f85   Thumb Code    84  clib_os.o(.text._mutex_free)
-    _mutex_initialize                        0x00001fd9   Thumb Code   168  clib_os.o(.text._mutex_initialize)
-    _mutex_release                           0x00002081   Thumb Code    42  clib_os.o(.text._mutex_release)
-    _platform_post_stackheap_init            0x000020ad   Thumb Code     2  clib_os.o(.text._platform_post_stackheap_init)
-    _sys_exit                                0x000020b1   Thumb Code    10  retarget.o(.text._sys_exit)
-    consoleprint                             0x000020bd   Thumb Code    32  consoleprint.o(.text.consoleprint)
-    main                                     0x000020fd   Thumb Code   258  main.o(.text.main)
-    pvPortMalloc                             0x000032ed   Thumb Code   696  heap_4.o(.text.pvPortMalloc)
-    pvTaskIncrementMutexHeldCount            0x000035a5   Thumb Code    36  tasks.o(.text.pvTaskIncrementMutexHeldCount)
-    pxPortInitialiseStack                    0x000035c9   Thumb Code    94  port.o(.text.pxPortInitialiseStack)
-    uxListRemove                             0x00003629   Thumb Code    72  list.o(.text.uxListRemove)
-    uxTaskGetNumberOfTasks                   0x00003671   Thumb Code    12  tasks.o(.text.uxTaskGetNumberOfTasks)
-    vApplicationGetIdleTaskMemory            0x0000367d   Thumb Code    42  tasks.o(.text.vApplicationGetIdleTaskMemory)
-    vApplicationGetTimerTaskMemory           0x000036a9   Thumb Code    42  tasks.o(.text.vApplicationGetTimerTaskMemory)
-    vApplicationStackOverflowHook            0x000036d5   Thumb Code    16  cmsis_os2.o(.text.vApplicationStackOverflowHook)
-    vGateControlTask                         0x000036e5   Thumb Code   374  main.o(.text.vGateControlTask)
-    vInputTask                               0x0000385d   Thumb Code   346  main.o(.text.vInputTask)
-    vLedControlTask                          0x000039b9   Thumb Code   130  main.o(.text.vLedControlTask)
-    vListInitialise                          0x00003a3d   Thumb Code    46  list.o(.text.vListInitialise)
-    vListInitialiseItem                      0x00003a6d   Thumb Code    14  list.o(.text.vListInitialiseItem)
-    vListInsert                              0x00003a7d   Thumb Code   106  list.o(.text.vListInsert)
-    vPortEnterCritical                       0x00003afd   Thumb Code    72  port.o(.text.vPortEnterCritical)
-    vPortExitCritical                        0x00003b45   Thumb Code    60  port.o(.text.vPortExitCritical)
-    vPortFree                                0x00003b81   Thumb Code   222  heap_4.o(.text.vPortFree)
-    vPortSetupTimerInterrupt                 0x00003c61   Thumb Code    68  port.o(.text.vPortSetupTimerInterrupt)
-    vPortValidateInterruptPriority           0x00003ca5   Thumb Code   104  port.o(.text.vPortValidateInterruptPriority)
-    vPrintString                             0x00003d0d   Thumb Code    48  basic_io.o(.text.vPrintString)
-    vQueueDelete                             0x00003d3d   Thumb Code    48  queue.o(.text.vQueueDelete)
-    vQueueWaitForMessageRestricted           0x00003d6d   Thumb Code   100  queue.o(.text.vQueueWaitForMessageRestricted)
-    vSafetyTask                              0x00003dd1   Thumb Code    90  main.o(.text.vSafetyTask)
-    vTaskDelay                               0x00003e2d   Thumb Code    98  tasks.o(.text.vTaskDelay)
-    vTaskInternalSetTimeOutState             0x00003e91   Thumb Code    36  tasks.o(.text.vTaskInternalSetTimeOutState)
-    vTaskMissedYield                         0x00003eb5   Thumb Code    14  tasks.o(.text.vTaskMissedYield)
-    vTaskPlaceOnEventList                    0x00003ec5   Thumb Code    52  tasks.o(.text.vTaskPlaceOnEventList)
-    vTaskPlaceOnEventListRestricted          0x00003ef9   Thumb Code   114  tasks.o(.text.vTaskPlaceOnEventListRestricted)
-    vTaskPriorityDisinheritAfterTimeout      0x00003f6d   Thumb Code   358  tasks.o(.text.vTaskPriorityDisinheritAfterTimeout)
-    vTaskStartScheduler                      0x000040d5   Thumb Code   130  tasks.o(.text.vTaskStartScheduler)
-    vTaskSuspendAll                          0x00004159   Thumb Code    16  tasks.o(.text.vTaskSuspendAll)
-    vTaskSwitchContext                       0x00004169   Thumb Code   312  tasks.o(.text.vTaskSwitchContext)
-    xPortStartScheduler                      0x000042a1   Thumb Code   428  port.o(.text.xPortStartScheduler)
-    xPortSysTickHandler                      0x0000444d   Thumb Code    62  port.o(.text.xPortSysTickHandler)
-    xQueueCreateMutex                        0x0000448d   Thumb Code    38  queue.o(.text.xQueueCreateMutex)
-    xQueueCreateMutexStatic                  0x000044b5   Thumb Code    50  queue.o(.text.xQueueCreateMutexStatic)
-    xQueueGenericCreate                      0x000044e9   Thumb Code   148  queue.o(.text.xQueueGenericCreate)
-    xQueueGenericCreateStatic                0x0000457d   Thumb Code   158  queue.o(.text.xQueueGenericCreateStatic)
-    xQueueGenericReset                       0x0000461d   Thumb Code   236  queue.o(.text.xQueueGenericReset)
-    xQueueGenericSend                        0x00004709   Thumb Code   500  queue.o(.text.xQueueGenericSend)
-    xQueueGiveFromISR                        0x000048fd   Thumb Code   292  queue.o(.text.xQueueGiveFromISR)
-    xQueueReceive                            0x00004a21   Thumb Code   434  queue.o(.text.xQueueReceive)
-    xQueueSemaphoreTake                      0x00004bd5   Thumb Code   486  queue.o(.text.xQueueSemaphoreTake)
-    xTaskCheckForTimeOut                     0x00004dbd   Thumb Code   224  tasks.o(.text.xTaskCheckForTimeOut)
-    xTaskCreate                              0x00004e9d   Thumb Code    82  tasks.o(.text.xTaskCreate)
-    xTaskCreateStatic                        0x00004ef1   Thumb Code    92  tasks.o(.text.xTaskCreateStatic)
-    xTaskGetSchedulerState                   0x00004f4d   Thumb Code    56  tasks.o(.text.xTaskGetSchedulerState)
-    xTaskGetTickCount                        0x00004f85   Thumb Code    20  tasks.o(.text.xTaskGetTickCount)
-    xTaskIncrementTick                       0x00004f99   Thumb Code   630  tasks.o(.text.xTaskIncrementTick)
-    xTaskPriorityDisinherit                  0x00005211   Thumb Code   286  tasks.o(.text.xTaskPriorityDisinherit)
-    xTaskPriorityInherit                     0x00005331   Thumb Code   348  tasks.o(.text.xTaskPriorityInherit)
-    xTaskRemoveFromEventList                 0x0000548d   Thumb Code   418  tasks.o(.text.xTaskRemoveFromEventList)
-    xTaskResumeAll                           0x00005631   Thumb Code   584  tasks.o(.text.xTaskResumeAll)
-    xTimerCreateTimerTask                    0x00005879   Thumb Code   134  timers.o(.text.xTimerCreateTimerTask)
-    _btod_d2e                                0x000058ff   Thumb Code    62  btod.o(CL$$btod_d2e)
-    _d2e_denorm_low                          0x0000593d   Thumb Code    70  btod.o(CL$$btod_d2e_denorm_low)
-    _d2e_norm_op1                            0x00005983   Thumb Code    96  btod.o(CL$$btod_d2e_norm_op1)
-    __btod_div_common                        0x000059e5   Thumb Code   696  btod.o(CL$$btod_div_common)
-    _e2e                                     0x00005d1d   Thumb Code   220  btod.o(CL$$btod_e2e)
-    _btod_ediv                               0x00005df9   Thumb Code    42  btod.o(CL$$btod_ediv)
-    _btod_emul                               0x00005e23   Thumb Code    42  btod.o(CL$$btod_emul)
-    __btod_mult_common                       0x00005e4d   Thumb Code   580  btod.o(CL$$btod_mult_common)
-    __ARM_fpclassify                         0x00006091   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
-    _is_digit                                0x000060c1   Thumb Code    14  __printf_wp.o(i._is_digit)
-    _get_lc_numeric                          0x000060d1   Thumb Code    44  lc_numeric_c.o(locale$$code)
-    _get_lc_ctype                            0x000060fd   Thumb Code    44  lc_ctype_c.o(locale$$code)
-    $Super$$_fp_init                         0x00006129   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x00006141   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x00006141   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    _printf_fp_dec                           0x00006143   Thumb Code     4  printf1.o(x$fpl$printf1)
-    _printf_fp_hex                           0x00006147   Thumb Code     4  printf2.o(x$fpl$printf2)
-    __I$use$fp                               0x0000614a   Number         0  usenofp.o(x$fpl$usenofp)
-    Region$$Table$$Base                      0x00006360   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00006380   Number         0  anon$$obj.o(Region$$Table)
-    __ctype                                  0x000063a9   Data           0  lc_ctype_c.o(locale$$data)
+    GPIOB_Handler                            0x000017b1   Thumb Code   166  main.o(.text.GPIOB_Handler)
+    GPIOD_Handler                            0x00001859   Thumb Code   164  main.o(.text.GPIOD_Handler)
+    GPIOE_Handler                            0x000018fd   Thumb Code   142  main.o(.text.GPIOE_Handler)
+    GPIOF_Handler                            0x0000198d   Thumb Code    96  main.o(.text.GPIOF_Handler)
+    IsButtonStillPressedByID                 0x00001e7d   Thumb Code   194  main.o(.text.IsButtonStillPressedByID)
+    LED_AllOff                               0x00001f41   Thumb Code    18  main.o(.text.LED_AllOff)
+    LED_Set                                  0x00001f55   Thumb Code    64  main.o(.text.LED_Set)
+    PendSV_Handler                           0x00001f95   Thumb Code    96  port.o(.text.PendSV_Handler)
+    SVC_Handler                              0x00001ff5   Thumb Code    32  port.o(.text.SVC_Handler)
+    SysTick_Handler                          0x00002015   Thumb Code    30  cmsis_os2.o(.text.SysTick_Handler)
+    SystemInit                               0x00002035   Thumb Code   268  system_tm4c123.o(.text.SystemInit)
+    __write                                  0x00002141   Thumb Code    52  retarget.o(.text.__write)
+    _mutex_acquire                           0x00002175   Thumb Code    40  clib_os.o(.text._mutex_acquire)
+    _mutex_free                              0x0000219d   Thumb Code    84  clib_os.o(.text._mutex_free)
+    _mutex_initialize                        0x000021f1   Thumb Code   168  clib_os.o(.text._mutex_initialize)
+    _mutex_release                           0x00002299   Thumb Code    42  clib_os.o(.text._mutex_release)
+    _platform_post_stackheap_init            0x000022c5   Thumb Code     2  clib_os.o(.text._platform_post_stackheap_init)
+    _sys_exit                                0x000022c9   Thumb Code    10  retarget.o(.text._sys_exit)
+    consoleprint                             0x000022d5   Thumb Code    32  consoleprint.o(.text.consoleprint)
+    main                                     0x00002315   Thumb Code   284  main.o(.text.main)
+    pvPortMalloc                             0x0000351d   Thumb Code   696  heap_4.o(.text.pvPortMalloc)
+    pvTaskIncrementMutexHeldCount            0x000037d5   Thumb Code    36  tasks.o(.text.pvTaskIncrementMutexHeldCount)
+    pxPortInitialiseStack                    0x000037f9   Thumb Code    94  port.o(.text.pxPortInitialiseStack)
+    uxListRemove                             0x00003859   Thumb Code    72  list.o(.text.uxListRemove)
+    uxTaskGetNumberOfTasks                   0x000038a1   Thumb Code    12  tasks.o(.text.uxTaskGetNumberOfTasks)
+    vApplicationGetIdleTaskMemory            0x000038ad   Thumb Code    42  tasks.o(.text.vApplicationGetIdleTaskMemory)
+    vApplicationGetTimerTaskMemory           0x000038d9   Thumb Code    42  tasks.o(.text.vApplicationGetTimerTaskMemory)
+    vApplicationStackOverflowHook            0x00003905   Thumb Code    16  cmsis_os2.o(.text.vApplicationStackOverflowHook)
+    vGateControlTask                         0x00003915   Thumb Code   362  main.o(.text.vGateControlTask)
+    vInputTask                               0x00003a81   Thumb Code   368  main.o(.text.vInputTask)
+    vLedControlTask                          0x00003bf1   Thumb Code   130  main.o(.text.vLedControlTask)
+    vListInitialise                          0x00003c75   Thumb Code    46  list.o(.text.vListInitialise)
+    vListInitialiseItem                      0x00003ca5   Thumb Code    14  list.o(.text.vListInitialiseItem)
+    vListInsert                              0x00003cb5   Thumb Code   106  list.o(.text.vListInsert)
+    vPortEnterCritical                       0x00003d35   Thumb Code    72  port.o(.text.vPortEnterCritical)
+    vPortExitCritical                        0x00003d7d   Thumb Code    60  port.o(.text.vPortExitCritical)
+    vPortFree                                0x00003db9   Thumb Code   222  heap_4.o(.text.vPortFree)
+    vPortSetupTimerInterrupt                 0x00003e99   Thumb Code    68  port.o(.text.vPortSetupTimerInterrupt)
+    vPortValidateInterruptPriority           0x00003edd   Thumb Code   104  port.o(.text.vPortValidateInterruptPriority)
+    vPrintString                             0x00003f45   Thumb Code    48  basic_io.o(.text.vPrintString)
+    vQueueDelete                             0x00003f75   Thumb Code    48  queue.o(.text.vQueueDelete)
+    vQueueWaitForMessageRestricted           0x00003fa5   Thumb Code   100  queue.o(.text.vQueueWaitForMessageRestricted)
+    vSafetyTask                              0x00004009   Thumb Code    78  main.o(.text.vSafetyTask)
+    vTaskDelay                               0x00004059   Thumb Code    98  tasks.o(.text.vTaskDelay)
+    vTaskInternalSetTimeOutState             0x000040bd   Thumb Code    36  tasks.o(.text.vTaskInternalSetTimeOutState)
+    vTaskMissedYield                         0x000040e1   Thumb Code    14  tasks.o(.text.vTaskMissedYield)
+    vTaskPlaceOnEventList                    0x000040f1   Thumb Code    52  tasks.o(.text.vTaskPlaceOnEventList)
+    vTaskPlaceOnEventListRestricted          0x00004125   Thumb Code   114  tasks.o(.text.vTaskPlaceOnEventListRestricted)
+    vTaskPriorityDisinheritAfterTimeout      0x00004199   Thumb Code   358  tasks.o(.text.vTaskPriorityDisinheritAfterTimeout)
+    vTaskStartScheduler                      0x00004301   Thumb Code   130  tasks.o(.text.vTaskStartScheduler)
+    vTaskSuspendAll                          0x00004385   Thumb Code    16  tasks.o(.text.vTaskSuspendAll)
+    vTaskSwitchContext                       0x00004395   Thumb Code   312  tasks.o(.text.vTaskSwitchContext)
+    xPortStartScheduler                      0x000044cd   Thumb Code   428  port.o(.text.xPortStartScheduler)
+    xPortSysTickHandler                      0x00004679   Thumb Code    62  port.o(.text.xPortSysTickHandler)
+    xQueueCreateMutex                        0x000046b9   Thumb Code    38  queue.o(.text.xQueueCreateMutex)
+    xQueueCreateMutexStatic                  0x000046e1   Thumb Code    50  queue.o(.text.xQueueCreateMutexStatic)
+    xQueueGenericCreate                      0x00004715   Thumb Code   148  queue.o(.text.xQueueGenericCreate)
+    xQueueGenericCreateStatic                0x000047a9   Thumb Code   158  queue.o(.text.xQueueGenericCreateStatic)
+    xQueueGenericReset                       0x00004849   Thumb Code   236  queue.o(.text.xQueueGenericReset)
+    xQueueGenericSend                        0x00004935   Thumb Code   500  queue.o(.text.xQueueGenericSend)
+    xQueueGenericSendFromISR                 0x00004b29   Thumb Code   332  queue.o(.text.xQueueGenericSendFromISR)
+    xQueueGiveFromISR                        0x00004c75   Thumb Code   292  queue.o(.text.xQueueGiveFromISR)
+    xQueueReceive                            0x00004d99   Thumb Code   434  queue.o(.text.xQueueReceive)
+    xQueueSemaphoreTake                      0x00004f4d   Thumb Code   486  queue.o(.text.xQueueSemaphoreTake)
+    xTaskCheckForTimeOut                     0x00005135   Thumb Code   224  tasks.o(.text.xTaskCheckForTimeOut)
+    xTaskCreate                              0x00005215   Thumb Code    82  tasks.o(.text.xTaskCreate)
+    xTaskCreateStatic                        0x00005269   Thumb Code    92  tasks.o(.text.xTaskCreateStatic)
+    xTaskGetSchedulerState                   0x000052c5   Thumb Code    56  tasks.o(.text.xTaskGetSchedulerState)
+    xTaskGetTickCount                        0x000052fd   Thumb Code    20  tasks.o(.text.xTaskGetTickCount)
+    xTaskIncrementTick                       0x00005311   Thumb Code   630  tasks.o(.text.xTaskIncrementTick)
+    xTaskPriorityDisinherit                  0x00005589   Thumb Code   286  tasks.o(.text.xTaskPriorityDisinherit)
+    xTaskPriorityInherit                     0x000056a9   Thumb Code   348  tasks.o(.text.xTaskPriorityInherit)
+    xTaskRemoveFromEventList                 0x00005805   Thumb Code   418  tasks.o(.text.xTaskRemoveFromEventList)
+    xTaskResumeAll                           0x000059a9   Thumb Code   584  tasks.o(.text.xTaskResumeAll)
+    xTimerCreateTimerTask                    0x00005bf1   Thumb Code   134  timers.o(.text.xTimerCreateTimerTask)
+    _btod_d2e                                0x00005c77   Thumb Code    62  btod.o(CL$$btod_d2e)
+    _d2e_denorm_low                          0x00005cb5   Thumb Code    70  btod.o(CL$$btod_d2e_denorm_low)
+    _d2e_norm_op1                            0x00005cfb   Thumb Code    96  btod.o(CL$$btod_d2e_norm_op1)
+    __btod_div_common                        0x00005d5d   Thumb Code   696  btod.o(CL$$btod_div_common)
+    _e2e                                     0x00006095   Thumb Code   220  btod.o(CL$$btod_e2e)
+    _btod_ediv                               0x00006171   Thumb Code    42  btod.o(CL$$btod_ediv)
+    _btod_emul                               0x0000619b   Thumb Code    42  btod.o(CL$$btod_emul)
+    __btod_mult_common                       0x000061c5   Thumb Code   580  btod.o(CL$$btod_mult_common)
+    __ARM_fpclassify                         0x00006409   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
+    _is_digit                                0x00006439   Thumb Code    14  __printf_wp.o(i._is_digit)
+    _get_lc_numeric                          0x00006449   Thumb Code    44  lc_numeric_c.o(locale$$code)
+    _get_lc_ctype                            0x00006475   Thumb Code    44  lc_ctype_c.o(locale$$code)
+    $Super$$_fp_init                         0x000064a1   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x000064b9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x000064b9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    _printf_fp_dec                           0x000064bb   Thumb Code     4  printf1.o(x$fpl$printf1)
+    _printf_fp_hex                           0x000064bf   Thumb Code     4  printf2.o(x$fpl$printf2)
+    __I$use$fp                               0x000064c2   Number         0  usenofp.o(x$fpl$usenofp)
+    Region$$Table$$Base                      0x000066c8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000066e8   Number         0  anon$$obj.o(Region$$Table)
+    __ctype                                  0x00006711   Data           0  lc_ctype_c.o(locale$$data)
     SystemCoreClock                          0x20000000   Data           4  system_tm4c123.o(.data.SystemCoreClock)
     gateState                                0x20000004   Data           1  main.o(.data.gateState)
     __libspace_start                         0x20000010   Data          96  libspace.o(.bss)
@@ -3141,6 +3158,7 @@ Image Symbol Table
     xGateMutex                               0x20002c90   Data           4  main.o(.bss.xGateMutex)
     xLimitSemaphore                          0x20002c98   Data           4  main.o(.bss.xLimitSemaphore)
     xObstacleSemaphore                       0x20002cb0   Data           4  main.o(.bss.xObstacleSemaphore)
+    xValidatedQueue                          0x20002d0c   Data           4  main.o(.bss.xValidatedQueue)
 
 
 
@@ -3150,404 +3168,408 @@ Memory Map of the image
 
   Image Entry point : 0x000003c1
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000064b8, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00006820, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000064ac, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00006814, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x0000026c   Data   RO          337    RESET               startup_tm4c123.o
-    0x0000026c   0x0000026c   0x00000008   Code   RO          851  * !!!main             c_w.l(__main.o)
-    0x00000274   0x00000274   0x00000034   Code   RO         1186    !!!scatter          c_w.l(__scatter.o)
-    0x000002a8   0x000002a8   0x0000001a   Code   RO         1188    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x00000000   0x00000000   0x0000026c   Data   RO          341    RESET               startup_tm4c123.o
+    0x0000026c   0x0000026c   0x00000008   Code   RO          855  * !!!main             c_w.l(__main.o)
+    0x00000274   0x00000274   0x00000034   Code   RO         1190    !!!scatter          c_w.l(__scatter.o)
+    0x000002a8   0x000002a8   0x0000001a   Code   RO         1192    !!handler_copy      c_w.l(__scatter_copy.o)
     0x000002c2   0x000002c2   0x00000002   PAD
-    0x000002c4   0x000002c4   0x0000001c   Code   RO         1190    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x000002e0   0x000002e0   0x00000000   Code   RO          937    .ARM.Collect$$_printf_percent$$00000000  c_w.l(_printf_percent.o)
-    0x000002e0   0x000002e0   0x00000006   Code   RO          926    .ARM.Collect$$_printf_percent$$00000001  c_w.l(_printf_n.o)
-    0x000002e6   0x000002e6   0x00000006   Code   RO          928    .ARM.Collect$$_printf_percent$$00000002  c_w.l(_printf_p.o)
-    0x000002ec   0x000002ec   0x00000006   Code   RO          933    .ARM.Collect$$_printf_percent$$00000003  c_w.l(_printf_f.o)
-    0x000002f2   0x000002f2   0x00000006   Code   RO          934    .ARM.Collect$$_printf_percent$$00000004  c_w.l(_printf_e.o)
-    0x000002f8   0x000002f8   0x00000006   Code   RO          935    .ARM.Collect$$_printf_percent$$00000005  c_w.l(_printf_g.o)
-    0x000002fe   0x000002fe   0x00000006   Code   RO          936    .ARM.Collect$$_printf_percent$$00000006  c_w.l(_printf_a.o)
-    0x00000304   0x00000304   0x0000000a   Code   RO          941    .ARM.Collect$$_printf_percent$$00000007  c_w.l(_printf_ll.o)
-    0x0000030e   0x0000030e   0x00000006   Code   RO          930    .ARM.Collect$$_printf_percent$$00000008  c_w.l(_printf_i.o)
-    0x00000314   0x00000314   0x00000006   Code   RO          931    .ARM.Collect$$_printf_percent$$00000009  c_w.l(_printf_d.o)
-    0x0000031a   0x0000031a   0x00000006   Code   RO          932    .ARM.Collect$$_printf_percent$$0000000A  c_w.l(_printf_u.o)
-    0x00000320   0x00000320   0x00000006   Code   RO          929    .ARM.Collect$$_printf_percent$$0000000B  c_w.l(_printf_o.o)
-    0x00000326   0x00000326   0x00000006   Code   RO          927    .ARM.Collect$$_printf_percent$$0000000C  c_w.l(_printf_x.o)
-    0x0000032c   0x0000032c   0x00000006   Code   RO          938    .ARM.Collect$$_printf_percent$$0000000D  c_w.l(_printf_lli.o)
-    0x00000332   0x00000332   0x00000006   Code   RO          939    .ARM.Collect$$_printf_percent$$0000000E  c_w.l(_printf_lld.o)
-    0x00000338   0x00000338   0x00000006   Code   RO          940    .ARM.Collect$$_printf_percent$$0000000F  c_w.l(_printf_llu.o)
-    0x0000033e   0x0000033e   0x00000006   Code   RO          945    .ARM.Collect$$_printf_percent$$00000010  c_w.l(_printf_llo.o)
-    0x00000344   0x00000344   0x00000006   Code   RO          946    .ARM.Collect$$_printf_percent$$00000011  c_w.l(_printf_llx.o)
-    0x0000034a   0x0000034a   0x0000000a   Code   RO          942    .ARM.Collect$$_printf_percent$$00000012  c_w.l(_printf_l.o)
-    0x00000354   0x00000354   0x00000006   Code   RO          924    .ARM.Collect$$_printf_percent$$00000013  c_w.l(_printf_c.o)
-    0x0000035a   0x0000035a   0x00000006   Code   RO          925    .ARM.Collect$$_printf_percent$$00000014  c_w.l(_printf_s.o)
-    0x00000360   0x00000360   0x00000006   Code   RO          943    .ARM.Collect$$_printf_percent$$00000015  c_w.l(_printf_lc.o)
-    0x00000366   0x00000366   0x00000006   Code   RO          944    .ARM.Collect$$_printf_percent$$00000016  c_w.l(_printf_ls.o)
-    0x0000036c   0x0000036c   0x00000004   Code   RO          991    .ARM.Collect$$_printf_percent$$00000017  c_w.l(_printf_percent_end.o)
-    0x00000370   0x00000370   0x00000002   Code   RO         1042    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x00000372   0x00000372   0x00000004   Code   RO         1058    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x00000376   0x00000376   0x00000000   Code   RO         1061    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x00000376   0x00000376   0x00000000   Code   RO         1063    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
-    0x00000376   0x00000376   0x00000000   Code   RO         1066    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x00000376   0x00000376   0x00000000   Code   RO         1068    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x00000376   0x00000376   0x00000000   Code   RO         1070    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
-    0x00000376   0x00000376   0x00000006   Code   RO         1071    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x0000037c   0x0000037c   0x00000000   Code   RO         1073    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x0000037c   0x0000037c   0x0000000c   Code   RO         1074    .ARM.Collect$$libinit$$00000014  c_w.l(libinit2.o)
-    0x00000388   0x00000388   0x00000000   Code   RO         1075    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x00000388   0x00000388   0x00000000   Code   RO         1077    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x00000388   0x00000388   0x0000000a   Code   RO         1078    .ARM.Collect$$libinit$$00000018  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1079    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1081    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1083    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1085    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1087    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1089    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1091    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1093    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1097    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1099    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1101    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000000   Code   RO         1103    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
-    0x00000392   0x00000392   0x00000002   Code   RO         1104    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
-    0x00000394   0x00000394   0x00000002   Code   RO         1122    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x00000396   0x00000396   0x00000000   Code   RO         1134    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x00000396   0x00000396   0x00000000   Code   RO         1136    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x00000396   0x00000396   0x00000000   Code   RO         1139    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x00000396   0x00000396   0x00000000   Code   RO         1142    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x00000396   0x00000396   0x00000000   Code   RO         1144    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x00000396   0x00000396   0x00000000   Code   RO         1147    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x00000396   0x00000396   0x00000002   Code   RO         1148    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x00000398   0x00000398   0x00000000   Code   RO          855    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x00000398   0x00000398   0x00000000   Code   RO          960    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x00000398   0x00000398   0x00000006   Code   RO          972    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0000039e   0x0000039e   0x00000008   Code   RO          961    .ARM.Collect$$rtentry$$00000008  c_w.l(__rtentry2.o)
-    0x000003a6   0x000003a6   0x00000004   Code   RO          963    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x000003aa   0x000003aa   0x00000000   Code   RO          965    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x000003aa   0x000003aa   0x00000008   Code   RO          966    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x000003b2   0x000003b2   0x00000002   Code   RO         1051    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x000003b4   0x000003b4   0x00000000   Code   RO         1106    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x000003b4   0x000003b4   0x00000004   Code   RO         1107    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x000003b8   0x000003b8   0x00000006   Code   RO         1108    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x000002c4   0x000002c4   0x0000001c   Code   RO         1194    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x000002e0   0x000002e0   0x00000000   Code   RO          941    .ARM.Collect$$_printf_percent$$00000000  c_w.l(_printf_percent.o)
+    0x000002e0   0x000002e0   0x00000006   Code   RO          930    .ARM.Collect$$_printf_percent$$00000001  c_w.l(_printf_n.o)
+    0x000002e6   0x000002e6   0x00000006   Code   RO          932    .ARM.Collect$$_printf_percent$$00000002  c_w.l(_printf_p.o)
+    0x000002ec   0x000002ec   0x00000006   Code   RO          937    .ARM.Collect$$_printf_percent$$00000003  c_w.l(_printf_f.o)
+    0x000002f2   0x000002f2   0x00000006   Code   RO          938    .ARM.Collect$$_printf_percent$$00000004  c_w.l(_printf_e.o)
+    0x000002f8   0x000002f8   0x00000006   Code   RO          939    .ARM.Collect$$_printf_percent$$00000005  c_w.l(_printf_g.o)
+    0x000002fe   0x000002fe   0x00000006   Code   RO          940    .ARM.Collect$$_printf_percent$$00000006  c_w.l(_printf_a.o)
+    0x00000304   0x00000304   0x0000000a   Code   RO          945    .ARM.Collect$$_printf_percent$$00000007  c_w.l(_printf_ll.o)
+    0x0000030e   0x0000030e   0x00000006   Code   RO          934    .ARM.Collect$$_printf_percent$$00000008  c_w.l(_printf_i.o)
+    0x00000314   0x00000314   0x00000006   Code   RO          935    .ARM.Collect$$_printf_percent$$00000009  c_w.l(_printf_d.o)
+    0x0000031a   0x0000031a   0x00000006   Code   RO          936    .ARM.Collect$$_printf_percent$$0000000A  c_w.l(_printf_u.o)
+    0x00000320   0x00000320   0x00000006   Code   RO          933    .ARM.Collect$$_printf_percent$$0000000B  c_w.l(_printf_o.o)
+    0x00000326   0x00000326   0x00000006   Code   RO          931    .ARM.Collect$$_printf_percent$$0000000C  c_w.l(_printf_x.o)
+    0x0000032c   0x0000032c   0x00000006   Code   RO          942    .ARM.Collect$$_printf_percent$$0000000D  c_w.l(_printf_lli.o)
+    0x00000332   0x00000332   0x00000006   Code   RO          943    .ARM.Collect$$_printf_percent$$0000000E  c_w.l(_printf_lld.o)
+    0x00000338   0x00000338   0x00000006   Code   RO          944    .ARM.Collect$$_printf_percent$$0000000F  c_w.l(_printf_llu.o)
+    0x0000033e   0x0000033e   0x00000006   Code   RO          949    .ARM.Collect$$_printf_percent$$00000010  c_w.l(_printf_llo.o)
+    0x00000344   0x00000344   0x00000006   Code   RO          950    .ARM.Collect$$_printf_percent$$00000011  c_w.l(_printf_llx.o)
+    0x0000034a   0x0000034a   0x0000000a   Code   RO          946    .ARM.Collect$$_printf_percent$$00000012  c_w.l(_printf_l.o)
+    0x00000354   0x00000354   0x00000006   Code   RO          928    .ARM.Collect$$_printf_percent$$00000013  c_w.l(_printf_c.o)
+    0x0000035a   0x0000035a   0x00000006   Code   RO          929    .ARM.Collect$$_printf_percent$$00000014  c_w.l(_printf_s.o)
+    0x00000360   0x00000360   0x00000006   Code   RO          947    .ARM.Collect$$_printf_percent$$00000015  c_w.l(_printf_lc.o)
+    0x00000366   0x00000366   0x00000006   Code   RO          948    .ARM.Collect$$_printf_percent$$00000016  c_w.l(_printf_ls.o)
+    0x0000036c   0x0000036c   0x00000004   Code   RO          995    .ARM.Collect$$_printf_percent$$00000017  c_w.l(_printf_percent_end.o)
+    0x00000370   0x00000370   0x00000002   Code   RO         1046    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x00000372   0x00000372   0x00000004   Code   RO         1062    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x00000376   0x00000376   0x00000000   Code   RO         1065    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x00000376   0x00000376   0x00000000   Code   RO         1067    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
+    0x00000376   0x00000376   0x00000000   Code   RO         1070    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x00000376   0x00000376   0x00000000   Code   RO         1072    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x00000376   0x00000376   0x00000000   Code   RO         1074    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
+    0x00000376   0x00000376   0x00000006   Code   RO         1075    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x0000037c   0x0000037c   0x00000000   Code   RO         1077    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x0000037c   0x0000037c   0x0000000c   Code   RO         1078    .ARM.Collect$$libinit$$00000014  c_w.l(libinit2.o)
+    0x00000388   0x00000388   0x00000000   Code   RO         1079    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x00000388   0x00000388   0x00000000   Code   RO         1081    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x00000388   0x00000388   0x0000000a   Code   RO         1082    .ARM.Collect$$libinit$$00000018  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1083    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1085    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1087    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1089    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1091    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1093    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1095    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1097    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1101    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1103    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1105    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000000   Code   RO         1107    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
+    0x00000392   0x00000392   0x00000002   Code   RO         1108    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
+    0x00000394   0x00000394   0x00000002   Code   RO         1126    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x00000396   0x00000396   0x00000000   Code   RO         1138    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x00000396   0x00000396   0x00000000   Code   RO         1140    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x00000396   0x00000396   0x00000000   Code   RO         1143    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x00000396   0x00000396   0x00000000   Code   RO         1146    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x00000396   0x00000396   0x00000000   Code   RO         1148    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x00000396   0x00000396   0x00000000   Code   RO         1151    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x00000396   0x00000396   0x00000002   Code   RO         1152    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x00000398   0x00000398   0x00000000   Code   RO          859    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x00000398   0x00000398   0x00000000   Code   RO          964    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x00000398   0x00000398   0x00000006   Code   RO          976    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0000039e   0x0000039e   0x00000008   Code   RO          965    .ARM.Collect$$rtentry$$00000008  c_w.l(__rtentry2.o)
+    0x000003a6   0x000003a6   0x00000004   Code   RO          967    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x000003aa   0x000003aa   0x00000000   Code   RO          969    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x000003aa   0x000003aa   0x00000008   Code   RO          970    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x000003b2   0x000003b2   0x00000002   Code   RO         1055    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x000003b4   0x000003b4   0x00000000   Code   RO         1110    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x000003b4   0x000003b4   0x00000004   Code   RO         1111    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x000003b8   0x000003b8   0x00000006   Code   RO         1112    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x000003be   0x000003be   0x00000002   PAD
-    0x000003c0   0x000003c0   0x00000114   Code   RO          338  * .text               startup_tm4c123.o
-    0x000004d4   0x000004d4   0x0000002c   Code   RO          837    .text               c_w.l(sprintf.o)
-    0x00000500   0x00000500   0x0000003e   Code   RO          839    .text               c_w.l(strlen.o)
-    0x0000053e   0x0000053e   0x0000008a   Code   RO          841    .text               c_w.l(rt_memcpy_v6.o)
-    0x000005c8   0x000005c8   0x00000010   Code   RO          843    .text               c_w.l(aeabi_memset4.o)
-    0x000005d8   0x000005d8   0x00000044   Code   RO          845    .text               c_w.l(rt_memclr.o)
+    0x000003c0   0x000003c0   0x00000114   Code   RO          342  * .text               startup_tm4c123.o
+    0x000004d4   0x000004d4   0x0000002c   Code   RO          841    .text               c_w.l(sprintf.o)
+    0x00000500   0x00000500   0x0000003e   Code   RO          843    .text               c_w.l(strlen.o)
+    0x0000053e   0x0000053e   0x0000008a   Code   RO          845    .text               c_w.l(rt_memcpy_v6.o)
+    0x000005c8   0x000005c8   0x00000010   Code   RO          847    .text               c_w.l(aeabi_memset4.o)
+    0x000005d8   0x000005d8   0x00000044   Code   RO          849    .text               c_w.l(rt_memclr.o)
     0x0000061c   0x0000061c   0x00000004   PAD
-    0x00000620   0x00000620   0x0000007c   Code   RO          847    .text               c_w.l(strcmpv7em.o)
-    0x0000069c   0x0000069c   0x00000006   Code   RO          849    .text               c_w.l(heapauxi.o)
-    0x000006a2   0x000006a2   0x0000004e   Code   RO          858    .text               c_w.l(_printf_pad.o)
-    0x000006f0   0x000006f0   0x00000024   Code   RO          860    .text               c_w.l(_printf_truncate.o)
-    0x00000714   0x00000714   0x00000052   Code   RO          862    .text               c_w.l(_printf_str.o)
+    0x00000620   0x00000620   0x0000007c   Code   RO          851    .text               c_w.l(strcmpv7em.o)
+    0x0000069c   0x0000069c   0x00000006   Code   RO          853    .text               c_w.l(heapauxi.o)
+    0x000006a2   0x000006a2   0x0000004e   Code   RO          862    .text               c_w.l(_printf_pad.o)
+    0x000006f0   0x000006f0   0x00000024   Code   RO          864    .text               c_w.l(_printf_truncate.o)
+    0x00000714   0x00000714   0x00000052   Code   RO          866    .text               c_w.l(_printf_str.o)
     0x00000766   0x00000766   0x00000002   PAD
-    0x00000768   0x00000768   0x00000078   Code   RO          864    .text               c_w.l(_printf_dec.o)
-    0x000007e0   0x000007e0   0x00000028   Code   RO          866    .text               c_w.l(_printf_charcount.o)
-    0x00000808   0x00000808   0x00000030   Code   RO          868    .text               c_w.l(_printf_char_common.o)
-    0x00000838   0x00000838   0x0000000a   Code   RO          870    .text               c_w.l(_sputc.o)
+    0x00000768   0x00000768   0x00000078   Code   RO          868    .text               c_w.l(_printf_dec.o)
+    0x000007e0   0x000007e0   0x00000028   Code   RO          870    .text               c_w.l(_printf_charcount.o)
+    0x00000808   0x00000808   0x00000030   Code   RO          872    .text               c_w.l(_printf_char_common.o)
+    0x00000838   0x00000838   0x0000000a   Code   RO          874    .text               c_w.l(_sputc.o)
     0x00000842   0x00000842   0x00000002   PAD
-    0x00000844   0x00000844   0x000000bc   Code   RO          872    .text               c_w.l(_printf_wctomb.o)
-    0x00000900   0x00000900   0x0000007c   Code   RO          875    .text               c_w.l(_printf_longlong_dec.o)
-    0x0000097c   0x0000097c   0x00000070   Code   RO          881    .text               c_w.l(_printf_oct_int_ll.o)
-    0x000009ec   0x000009ec   0x00000094   Code   RO          901    .text               c_w.l(_printf_hex_int_ll_ptr.o)
-    0x00000a80   0x00000a80   0x00000188   Code   RO          921    .text               c_w.l(__printf_flags_ss_wp.o)
-    0x00000c08   0x00000c08   0x00000064   Code   RO          947    .text               c_w.l(rt_memcpy_w.o)
-    0x00000c6c   0x00000c6c   0x0000004e   Code   RO          949    .text               c_w.l(rt_memclr_w.o)
-    0x00000cba   0x00000cba   0x0000008a   Code   RO          974    .text               c_w.l(lludiv10.o)
-    0x00000d44   0x00000d44   0x000000b2   Code   RO          976    .text               c_w.l(_printf_intcommon.o)
-    0x00000df6   0x00000df6   0x0000041c   Code   RO          978    .text               c_w.l(_printf_fp_dec.o)
+    0x00000844   0x00000844   0x000000bc   Code   RO          876    .text               c_w.l(_printf_wctomb.o)
+    0x00000900   0x00000900   0x0000007c   Code   RO          879    .text               c_w.l(_printf_longlong_dec.o)
+    0x0000097c   0x0000097c   0x00000070   Code   RO          885    .text               c_w.l(_printf_oct_int_ll.o)
+    0x000009ec   0x000009ec   0x00000094   Code   RO          905    .text               c_w.l(_printf_hex_int_ll_ptr.o)
+    0x00000a80   0x00000a80   0x00000188   Code   RO          925    .text               c_w.l(__printf_flags_ss_wp.o)
+    0x00000c08   0x00000c08   0x00000064   Code   RO          951    .text               c_w.l(rt_memcpy_w.o)
+    0x00000c6c   0x00000c6c   0x0000004e   Code   RO          953    .text               c_w.l(rt_memclr_w.o)
+    0x00000cba   0x00000cba   0x0000008a   Code   RO          978    .text               c_w.l(lludiv10.o)
+    0x00000d44   0x00000d44   0x000000b2   Code   RO          980    .text               c_w.l(_printf_intcommon.o)
+    0x00000df6   0x00000df6   0x0000041c   Code   RO          982    .text               c_w.l(_printf_fp_dec.o)
     0x00001212   0x00001212   0x00000002   PAD
-    0x00001214   0x00001214   0x000002fc   Code   RO          982    .text               c_w.l(_printf_fp_hex.o)
-    0x00001510   0x00001510   0x0000002c   Code   RO          987    .text               c_w.l(_printf_char.o)
-    0x0000153c   0x0000153c   0x0000002c   Code   RO          989    .text               c_w.l(_printf_wchar.o)
-    0x00001568   0x00001568   0x00000048   Code   RO          992    .text               c_w.l(_c16rtomb.o)
-    0x000015b0   0x000015b0   0x0000004a   Code   RO          994    .text               c_w.l(sys_stackheap_outer.o)
+    0x00001214   0x00001214   0x000002fc   Code   RO          986    .text               c_w.l(_printf_fp_hex.o)
+    0x00001510   0x00001510   0x0000002c   Code   RO          991    .text               c_w.l(_printf_char.o)
+    0x0000153c   0x0000153c   0x0000002c   Code   RO          993    .text               c_w.l(_printf_wchar.o)
+    0x00001568   0x00001568   0x00000048   Code   RO          996    .text               c_w.l(_c16rtomb.o)
+    0x000015b0   0x000015b0   0x0000004a   Code   RO          998    .text               c_w.l(sys_stackheap_outer.o)
     0x000015fa   0x000015fa   0x00000002   PAD
-    0x000015fc   0x000015fc   0x00000010   Code   RO          996    .text               c_w.l(rt_ctype_table.o)
-    0x0000160c   0x0000160c   0x0000000a   Code   RO         1003    .text               c_w.l(rt_locale_twolibspace.o)
+    0x000015fc   0x000015fc   0x00000010   Code   RO         1000    .text               c_w.l(rt_ctype_table.o)
+    0x0000160c   0x0000160c   0x0000000a   Code   RO         1007    .text               c_w.l(rt_locale_twolibspace.o)
     0x00001616   0x00001616   0x00000002   PAD
-    0x00001618   0x00001618   0x00000080   Code   RO         1005    .text               c_w.l(_printf_fp_infnan.o)
-    0x00001698   0x00001698   0x000000e4   Code   RO         1007    .text               c_w.l(bigflt0.o)
-    0x0000177c   0x0000177c   0x00000012   Code   RO         1037    .text               c_w.l(exit.o)
+    0x00001618   0x00001618   0x00000080   Code   RO         1009    .text               c_w.l(_printf_fp_infnan.o)
+    0x00001698   0x00001698   0x000000e4   Code   RO         1011    .text               c_w.l(bigflt0.o)
+    0x0000177c   0x0000177c   0x00000012   Code   RO         1041    .text               c_w.l(exit.o)
     0x0000178e   0x0000178e   0x00000002   PAD
-    0x00001790   0x00001790   0x00000008   Code   RO         1048    .text               c_w.l(libspace.o)
-    0x00001798   0x00001798   0x00000016   Code   RO           84    .text.$Sub$$_fp_init  clib_os.o
+    0x00001790   0x00001790   0x00000008   Code   RO         1052    .text               c_w.l(libspace.o)
+    0x00001798   0x00001798   0x00000016   Code   RO           88    .text.$Sub$$_fp_init  clib_os.o
     0x000017ae   0x000017ae   0x00000002   PAD
-    0x000017b0   0x000017b0   0x0000008e   Code   RO           10    .text.GPIOE_Handler  main.o
-    0x0000183e   0x0000183e   0x00000002   PAD
-    0x00001840   0x00001840   0x00000060   Code   RO            8    .text.GPIOF_Handler  main.o
-    0x000018a0   0x000018a0   0x00000296   Code   RO           28    .text.GPIO_Init     main.o
-    0x00001b36   0x00001b36   0x00000002   PAD
-    0x00001b38   0x00001b38   0x0000006e   Code   RO           14    .text.GateState_CompareAndSet  main.o
-    0x00001ba6   0x00001ba6   0x00000002   PAD
-    0x00001ba8   0x00001ba8   0x0000003c   Code   RO           20    .text.GateState_Get  main.o
-    0x00001be4   0x00001be4   0x0000003c   Code   RO           22    .text.GateState_Set  main.o
-    0x00001c20   0x00001c20   0x00000044   Code   RO           71    .text.ITM_SendChar  retarget.o
-    0x00001c64   0x00001c64   0x000000c2   Code   RO            6    .text.IsButtonStillPressedByID  main.o
-    0x00001d26   0x00001d26   0x00000002   PAD
-    0x00001d28   0x00001d28   0x00000012   Code   RO            4    .text.LED_AllOff    main.o
-    0x00001d3a   0x00001d3a   0x00000002   PAD
-    0x00001d3c   0x00001d3c   0x00000040   Code   RO            2    .text.LED_Set       main.o
-    0x00001d7c   0x00001d7c   0x00000060   Code   RO          424    .text.PendSV_Handler  port.o
-    0x00001ddc   0x00001ddc   0x00000020   Code   RO          420    .text.SVC_Handler   port.o
-    0x00001dfc   0x00001dfc   0x0000001e   Code   RO          111    .text.SysTick_Handler  cmsis_os2.o
-    0x00001e1a   0x00001e1a   0x00000002   PAD
-    0x00001e1c   0x00001e1c   0x0000010c   Code   RO          349    .text.SystemInit    system_tm4c123.o
-    0x00001f28   0x00001f28   0x00000034   Code   RO           69    .text.__write       retarget.o
-    0x00001f5c   0x00001f5c   0x00000028   Code   RO           92    .text._mutex_acquire  clib_os.o
-    0x00001f84   0x00001f84   0x00000054   Code   RO           98    .text._mutex_free   clib_os.o
-    0x00001fd8   0x00001fd8   0x000000a8   Code   RO           90    .text._mutex_initialize  clib_os.o
-    0x00002080   0x00002080   0x0000002a   Code   RO           96    .text._mutex_release  clib_os.o
-    0x000020aa   0x000020aa   0x00000002   PAD
-    0x000020ac   0x000020ac   0x00000002   Code   RO           82    .text._platform_post_stackheap_init  clib_os.o
-    0x000020ae   0x000020ae   0x00000002   PAD
-    0x000020b0   0x000020b0   0x0000000a   Code   RO           73    .text._sys_exit     retarget.o
-    0x000020ba   0x000020ba   0x00000002   PAD
-    0x000020bc   0x000020bc   0x00000020   Code   RO           61    .text.consoleprint  consoleprint.o
-    0x000020dc   0x000020dc   0x00000020   Code   RO           94    .text.is_thread_mode  clib_os.o
-    0x000020fc   0x000020fc   0x00000102   Code   RO           26    .text.main          main.o
-    0x000021fe   0x000021fe   0x00000002   PAD
-    0x00002200   0x00002200   0x00000020   Code   RO           88    .text.os_kernel_is_active  clib_os.o
-    0x00002220   0x00002220   0x0000010e   Code   RO          595    .text.prvAddCurrentTaskToDelayedList  tasks.o
-    0x0000232e   0x0000232e   0x00000002   PAD
-    0x00002330   0x00002330   0x00000170   Code   RO          579    .text.prvAddNewTaskToReadyList  tasks.o
-    0x000024a0   0x000024a0   0x0000007e   Code   RO          757    .text.prvCheckForValidListAndQueue  timers.o
-    0x0000251e   0x0000251e   0x00000002   PAD
-    0x00002520   0x00002520   0x0000005a   Code   RO          629    .text.prvCheckTasksWaitingTermination  tasks.o
-    0x0000257a   0x0000257a   0x00000002   PAD
-    0x0000257c   0x0000257c   0x00000042   Code   RO          532    .text.prvCopyDataFromQueue  queue.o
-    0x000025be   0x000025be   0x00000002   PAD
-    0x000025c0   0x000025c0   0x000000cc   Code   RO          520    .text.prvCopyDataToQueue  queue.o
-    0x0000268c   0x0000268c   0x000000d8   Code   RO          625    .text.prvCreateIdleTasks  tasks.o
-    0x00002764   0x00002764   0x000000aa   Code   RO          577    .text.prvCreateStaticTask  tasks.o
-    0x0000280e   0x0000280e   0x00000002   PAD
-    0x00002810   0x00002810   0x0000008e   Code   RO          583    .text.prvCreateTask  tasks.o
-    0x0000289e   0x0000289e   0x00000002   PAD
-    0x000028a0   0x000028a0   0x00000050   Code   RO          589    .text.prvDeleteTCB  tasks.o
-    0x000028f0   0x000028f0   0x00000026   Code   RO          536    .text.prvGetHighestPriorityOfWaitToReceiveList  queue.o
-    0x00002916   0x00002916   0x00000002   PAD
-    0x00002918   0x00002918   0x00000040   Code   RO          803    .text.prvGetNextExpireTime  timers.o
-    0x00002958   0x00002958   0x000000aa   Code   RO          454    .text.prvHeapInit   heap_4.o
-    0x00002a02   0x00002a02   0x00000002   PAD
-    0x00002a04   0x00002a04   0x00000038   Code   RO          719    .text.prvIdleTask   tasks.o
-    0x00002a3c   0x00002a3c   0x0000002c   Code   RO          500    .text.prvInitialiseMutex  queue.o
-    0x00002a68   0x00002a68   0x00000048   Code   RO          492    .text.prvInitialiseNewQueue  queue.o
-    0x00002ab0   0x00002ab0   0x00000108   Code   RO          715    .text.prvInitialiseNewTask  tasks.o
-    0x00002bb8   0x00002bb8   0x0000008e   Code   RO          717    .text.prvInitialiseTaskLists  tasks.o
-    0x00002c46   0x00002c46   0x00000002   PAD
-    0x00002c48   0x00002c48   0x00000118   Code   RO          458    .text.prvInsertBlockIntoFreeList  heap_4.o
-    0x00002d60   0x00002d60   0x00000086   Code   RO          817    .text.prvInsertTimerInActiveList  timers.o
-    0x00002de6   0x00002de6   0x00000002   PAD
-    0x00002de8   0x00002de8   0x00000028   Code   RO          534    .text.prvIsQueueEmpty  queue.o
-    0x00002e10   0x00002e10   0x0000002e   Code   RO          522    .text.prvIsQueueFull  queue.o
-    0x00002e3e   0x00002e3e   0x00000002   PAD
-    0x00002e40   0x00002e40   0x00000028   Code   RO          430    .text.prvPortStartFirstTask  port.o
-    0x00002e68   0x00002e68   0x00000054   Code   RO          811    .text.prvProcessExpiredTimer  timers.o
-    0x00002ebc   0x00002ebc   0x0000017a   Code   RO          807    .text.prvProcessReceivedCommands  timers.o
-    0x00003036   0x00003036   0x00000002   PAD
-    0x00003038   0x00003038   0x0000009a   Code   RO          805    .text.prvProcessTimerOrBlockTask  timers.o
-    0x000030d2   0x000030d2   0x00000002   PAD
-    0x000030d4   0x000030d4   0x00000034   Code   RO          815    .text.prvReloadTimer  timers.o
-    0x00003108   0x00003108   0x0000003c   Code   RO          587    .text.prvResetNextTaskUnblockTime  tasks.o
-    0x00003144   0x00003144   0x00000044   Code   RO          809    .text.prvSampleTimeNow  timers.o
-    0x00003188   0x00003188   0x00000052   Code   RO          813    .text.prvSwitchTimerLists  timers.o
-    0x000031da   0x000031da   0x00000002   PAD
-    0x000031dc   0x000031dc   0x0000003e   Code   RO          418    .text.prvTaskExitError  port.o
-    0x0000321a   0x0000321a   0x00000002   PAD
-    0x0000321c   0x0000321c   0x0000001e   Code   RO          759    .text.prvTimerTask  timers.o
-    0x0000323a   0x0000323a   0x00000002   PAD
-    0x0000323c   0x0000323c   0x000000ae   Code   RO          524    .text.prvUnlockQueue  queue.o
-    0x000032ea   0x000032ea   0x00000002   PAD
-    0x000032ec   0x000032ec   0x000002b8   Code   RO          452    .text.pvPortMalloc  heap_4.o
-    0x000035a4   0x000035a4   0x00000024   Code   RO          693    .text.pvTaskIncrementMutexHeldCount  tasks.o
-    0x000035c8   0x000035c8   0x0000005e   Code   RO          416    .text.pxPortInitialiseStack  port.o
-    0x00003626   0x00003626   0x00000002   PAD
-    0x00003628   0x00003628   0x00000048   Code   RO          407    .text.uxListRemove  list.o
-    0x00003670   0x00003670   0x0000000c   Code   RO          637    .text.uxTaskGetNumberOfTasks  tasks.o
-    0x0000367c   0x0000367c   0x0000002a   Code   RO          709    .text.vApplicationGetIdleTaskMemory  tasks.o
-    0x000036a6   0x000036a6   0x00000002   PAD
-    0x000036a8   0x000036a8   0x0000002a   Code   RO          711    .text.vApplicationGetTimerTaskMemory  tasks.o
-    0x000036d2   0x000036d2   0x00000002   PAD
-    0x000036d4   0x000036d4   0x00000010   Code   RO          265    .text.vApplicationStackOverflowHook  cmsis_os2.o
-    0x000036e4   0x000036e4   0x00000176   Code   RO           18    .text.vGateControlTask  main.o
-    0x0000385a   0x0000385a   0x00000002   PAD
-    0x0000385c   0x0000385c   0x0000015a   Code   RO           16    .text.vInputTask    main.o
-    0x000039b6   0x000039b6   0x00000002   PAD
-    0x000039b8   0x000039b8   0x00000082   Code   RO           24    .text.vLedControlTask  main.o
-    0x00003a3a   0x00003a3a   0x00000002   PAD
-    0x00003a3c   0x00003a3c   0x0000002e   Code   RO          399    .text.vListInitialise  list.o
-    0x00003a6a   0x00003a6a   0x00000002   PAD
-    0x00003a6c   0x00003a6c   0x0000000e   Code   RO          401    .text.vListInitialiseItem  list.o
-    0x00003a7a   0x00003a7a   0x00000002   PAD
-    0x00003a7c   0x00003a7c   0x0000006a   Code   RO          405    .text.vListInsert   list.o
-    0x00003ae6   0x00003ae6   0x00000002   PAD
-    0x00003ae8   0x00003ae8   0x00000014   Code   RO          428    .text.vPortEnableVFP  port.o
-    0x00003afc   0x00003afc   0x00000048   Code   RO          434    .text.vPortEnterCritical  port.o
-    0x00003b44   0x00003b44   0x0000003c   Code   RO          436    .text.vPortExitCritical  port.o
-    0x00003b80   0x00003b80   0x000000de   Code   RO          456    .text.vPortFree     heap_4.o
-    0x00003c5e   0x00003c5e   0x00000002   PAD
-    0x00003c60   0x00003c60   0x00000044   Code   RO          426    .text.vPortSetupTimerInterrupt  port.o
-    0x00003ca4   0x00003ca4   0x00000068   Code   RO          440    .text.vPortValidateInterruptPriority  port.o
-    0x00003d0c   0x00003d0c   0x00000030   Code   RO           46    .text.vPrintString  basic_io.o
-    0x00003d3c   0x00003d3c   0x00000030   Code   RO          550    .text.vQueueDelete  queue.o
-    0x00003d6c   0x00003d6c   0x00000064   Code   RO          566    .text.vQueueWaitForMessageRestricted  queue.o
-    0x00003dd0   0x00003dd0   0x0000005a   Code   RO           12    .text.vSafetyTask   main.o
-    0x00003e2a   0x00003e2a   0x00000002   PAD
-    0x00003e2c   0x00003e2c   0x00000062   Code   RO          599    .text.vTaskDelay    tasks.o
-    0x00003e8e   0x00003e8e   0x00000002   PAD
-    0x00003e90   0x00003e90   0x00000024   Code   RO          663    .text.vTaskInternalSetTimeOutState  tasks.o
-    0x00003eb4   0x00003eb4   0x0000000e   Code   RO          667    .text.vTaskMissedYield  tasks.o
-    0x00003ec2   0x00003ec2   0x00000002   PAD
-    0x00003ec4   0x00003ec4   0x00000034   Code   RO          651    .text.vTaskPlaceOnEventList  tasks.o
-    0x00003ef8   0x00003ef8   0x00000072   Code   RO          655    .text.vTaskPlaceOnEventListRestricted  tasks.o
-    0x00003f6a   0x00003f6a   0x00000002   PAD
-    0x00003f6c   0x00003f6c   0x00000166   Code   RO          689    .text.vTaskPriorityDisinheritAfterTimeout  tasks.o
-    0x000040d2   0x000040d2   0x00000002   PAD
-    0x000040d4   0x000040d4   0x00000082   Code   RO          623    .text.vTaskStartScheduler  tasks.o
-    0x00004156   0x00004156   0x00000002   PAD
-    0x00004158   0x00004158   0x00000010   Code   RO          593    .text.vTaskSuspendAll  tasks.o
-    0x00004168   0x00004168   0x00000138   Code   RO          615    .text.vTaskSwitchContext  tasks.o
-    0x000042a0   0x000042a0   0x000001ac   Code   RO          422    .text.xPortStartScheduler  port.o
-    0x0000444c   0x0000444c   0x0000003e   Code   RO          438    .text.xPortSysTickHandler  port.o
-    0x0000448a   0x0000448a   0x00000002   PAD
-    0x0000448c   0x0000448c   0x00000026   Code   RO          498    .text.xQueueCreateMutex  queue.o
-    0x000044b2   0x000044b2   0x00000002   PAD
-    0x000044b4   0x000044b4   0x00000032   Code   RO          502    .text.xQueueCreateMutexStatic  queue.o
-    0x000044e6   0x000044e6   0x00000002   PAD
-    0x000044e8   0x000044e8   0x00000094   Code   RO          496    .text.xQueueGenericCreate  queue.o
-    0x0000457c   0x0000457c   0x0000009e   Code   RO          490    .text.xQueueGenericCreateStatic  queue.o
-    0x0000461a   0x0000461a   0x00000002   PAD
-    0x0000461c   0x0000461c   0x000000ec   Code   RO          488    .text.xQueueGenericReset  queue.o
-    0x00004708   0x00004708   0x000001f4   Code   RO          510    .text.xQueueGenericSend  queue.o
-    0x000048fc   0x000048fc   0x00000124   Code   RO          528    .text.xQueueGiveFromISR  queue.o
-    0x00004a20   0x00004a20   0x000001b2   Code   RO          530    .text.xQueueReceive  queue.o
-    0x00004bd2   0x00004bd2   0x00000002   PAD
-    0x00004bd4   0x00004bd4   0x000001e6   Code   RO          514    .text.xQueueSemaphoreTake  queue.o
-    0x00004dba   0x00004dba   0x00000002   PAD
-    0x00004dbc   0x00004dbc   0x000000e0   Code   RO          665    .text.xTaskCheckForTimeOut  tasks.o
-    0x00004e9c   0x00004e9c   0x00000052   Code   RO          581    .text.xTaskCreate   tasks.o
-    0x00004eee   0x00004eee   0x00000002   PAD
-    0x00004ef0   0x00004ef0   0x0000005c   Code   RO          575    .text.xTaskCreateStatic  tasks.o
-    0x00004f4c   0x00004f4c   0x00000038   Code   RO          683    .text.xTaskGetSchedulerState  tasks.o
-    0x00004f84   0x00004f84   0x00000014   Code   RO          633    .text.xTaskGetTickCount  tasks.o
-    0x00004f98   0x00004f98   0x00000276   Code   RO          631    .text.xTaskIncrementTick  tasks.o
-    0x0000520e   0x0000520e   0x00000002   PAD
-    0x00005210   0x00005210   0x0000011e   Code   RO          687    .text.xTaskPriorityDisinherit  tasks.o
-    0x0000532e   0x0000532e   0x00000002   PAD
-    0x00005330   0x00005330   0x0000015c   Code   RO          685    .text.xTaskPriorityInherit  tasks.o
-    0x0000548c   0x0000548c   0x000001a2   Code   RO          657    .text.xTaskRemoveFromEventList  tasks.o
-    0x0000562e   0x0000562e   0x00000002   PAD
-    0x00005630   0x00005630   0x00000248   Code   RO          597    .text.xTaskResumeAll  tasks.o
-    0x00005878   0x00005878   0x00000086   Code   RO          755    .text.xTimerCreateTimerTask  timers.o
-    0x000058fe   0x000058fe   0x0000003e   Code   RO         1010    CL$$btod_d2e        c_w.l(btod.o)
-    0x0000593c   0x0000593c   0x00000046   Code   RO         1012    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
-    0x00005982   0x00005982   0x00000060   Code   RO         1011    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
-    0x000059e2   0x000059e2   0x00000002   PAD
-    0x000059e4   0x000059e4   0x00000338   Code   RO         1020    CL$$btod_div_common  c_w.l(btod.o)
-    0x00005d1c   0x00005d1c   0x000000dc   Code   RO         1017    CL$$btod_e2e        c_w.l(btod.o)
-    0x00005df8   0x00005df8   0x0000002a   Code   RO         1014    CL$$btod_ediv       c_w.l(btod.o)
-    0x00005e22   0x00005e22   0x0000002a   Code   RO         1013    CL$$btod_emul       c_w.l(btod.o)
-    0x00005e4c   0x00005e4c   0x00000244   Code   RO         1019    CL$$btod_mult_common  c_w.l(btod.o)
-    0x00006090   0x00006090   0x00000030   Code   RO         1046    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
-    0x000060c0   0x000060c0   0x0000000e   Code   RO          914    i._is_digit         c_w.l(__printf_wp.o)
-    0x000060ce   0x000060ce   0x00000002   PAD
-    0x000060d0   0x000060d0   0x0000002c   Code   RO         1035    locale$$code        c_w.l(lc_numeric_c.o)
-    0x000060fc   0x000060fc   0x0000002c   Code   RO         1056    locale$$code        c_w.l(lc_ctype_c.o)
-    0x00006128   0x00006128   0x0000001a   Code   RO          853    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x00006142   0x00006142   0x00000004   Code   RO          951    x$fpl$printf1       fz_wm.l(printf1.o)
-    0x00006146   0x00006146   0x00000004   Code   RO          953    x$fpl$printf2       fz_wm.l(printf2.o)
-    0x0000614a   0x0000614a   0x00000000   Code   RO         1045    x$fpl$usenofp       fz_wm.l(usenofp.o)
-    0x0000614a   0x0000614a   0x00000002   PAD
-    0x0000614c   0x0000614c   0x00000008   Data   RO          873    .constdata          c_w.l(_printf_wctomb.o)
-    0x00006154   0x00006154   0x00000028   Data   RO          902    .constdata          c_w.l(_printf_hex_int_ll_ptr.o)
-    0x0000617c   0x0000617c   0x00000011   Data   RO          922    .constdata          c_w.l(__printf_flags_ss_wp.o)
-    0x0000618d   0x0000618d   0x00000026   Data   RO          983    .constdata          c_w.l(_printf_fp_hex.o)
-    0x000061b3   0x000061b3   0x00000001   PAD
-    0x000061b4   0x000061b4   0x00000094   Data   RO         1008    .constdata          c_w.l(bigflt0.o)
-    0x00006248   0x00006248   0x00000102   Data   RO           34    .rodata.str1.1      main.o
-    0x0000634a   0x0000634a   0x00000003   Data   RO           53    .rodata.str1.1      basic_io.o
-    0x0000634d   0x0000634d   0x00000005   Data   RO          747    .rodata.str1.1      tasks.o
-    0x00006352   0x00006352   0x00000008   Data   RO          820    .rodata.str1.1      timers.o
-    0x0000635a   0x0000635a   0x00000002   PAD
-    0x0000635c   0x0000635c   0x00000004   Data   RO          738    .rodata.uxTopUsedPriority  tasks.o
-    0x00006360   0x00006360   0x00000020   Data   RO         1185    Region$$Table       anon$$obj.o
-    0x00006380   0x00006380   0x0000001c   Data   RO         1034    locale$$data        c_w.l(lc_numeric_c.o)
-    0x0000639c   0x0000639c   0x00000110   Data   RO         1055    locale$$data        c_w.l(lc_ctype_c.o)
+    0x000017b0   0x000017b0   0x000000a6   Code   RO           12    .text.GPIOB_Handler  main.o
+    0x00001856   0x00001856   0x00000002   PAD
+    0x00001858   0x00001858   0x000000a4   Code   RO           14    .text.GPIOD_Handler  main.o
+    0x000018fc   0x000018fc   0x0000008e   Code   RO           10    .text.GPIOE_Handler  main.o
+    0x0000198a   0x0000198a   0x00000002   PAD
+    0x0000198c   0x0000198c   0x00000060   Code   RO            8    .text.GPIOF_Handler  main.o
+    0x000019ec   0x000019ec   0x00000362   Code   RO           32    .text.GPIO_Init     main.o
+    0x00001d4e   0x00001d4e   0x00000002   PAD
+    0x00001d50   0x00001d50   0x0000006e   Code   RO           18    .text.GateState_CompareAndSet  main.o
+    0x00001dbe   0x00001dbe   0x00000002   PAD
+    0x00001dc0   0x00001dc0   0x0000003c   Code   RO           22    .text.GateState_Get  main.o
+    0x00001dfc   0x00001dfc   0x0000003c   Code   RO           26    .text.GateState_Set  main.o
+    0x00001e38   0x00001e38   0x00000044   Code   RO           75    .text.ITM_SendChar  retarget.o
+    0x00001e7c   0x00001e7c   0x000000c2   Code   RO            6    .text.IsButtonStillPressedByID  main.o
+    0x00001f3e   0x00001f3e   0x00000002   PAD
+    0x00001f40   0x00001f40   0x00000012   Code   RO            4    .text.LED_AllOff    main.o
+    0x00001f52   0x00001f52   0x00000002   PAD
+    0x00001f54   0x00001f54   0x00000040   Code   RO            2    .text.LED_Set       main.o
+    0x00001f94   0x00001f94   0x00000060   Code   RO          428    .text.PendSV_Handler  port.o
+    0x00001ff4   0x00001ff4   0x00000020   Code   RO          424    .text.SVC_Handler   port.o
+    0x00002014   0x00002014   0x0000001e   Code   RO          115    .text.SysTick_Handler  cmsis_os2.o
+    0x00002032   0x00002032   0x00000002   PAD
+    0x00002034   0x00002034   0x0000010c   Code   RO          353    .text.SystemInit    system_tm4c123.o
+    0x00002140   0x00002140   0x00000034   Code   RO           73    .text.__write       retarget.o
+    0x00002174   0x00002174   0x00000028   Code   RO           96    .text._mutex_acquire  clib_os.o
+    0x0000219c   0x0000219c   0x00000054   Code   RO          102    .text._mutex_free   clib_os.o
+    0x000021f0   0x000021f0   0x000000a8   Code   RO           94    .text._mutex_initialize  clib_os.o
+    0x00002298   0x00002298   0x0000002a   Code   RO          100    .text._mutex_release  clib_os.o
+    0x000022c2   0x000022c2   0x00000002   PAD
+    0x000022c4   0x000022c4   0x00000002   Code   RO           86    .text._platform_post_stackheap_init  clib_os.o
+    0x000022c6   0x000022c6   0x00000002   PAD
+    0x000022c8   0x000022c8   0x0000000a   Code   RO           77    .text._sys_exit     retarget.o
+    0x000022d2   0x000022d2   0x00000002   PAD
+    0x000022d4   0x000022d4   0x00000020   Code   RO           65    .text.consoleprint  consoleprint.o
+    0x000022f4   0x000022f4   0x00000020   Code   RO           98    .text.is_thread_mode  clib_os.o
+    0x00002314   0x00002314   0x0000011c   Code   RO           30    .text.main          main.o
+    0x00002430   0x00002430   0x00000020   Code   RO           92    .text.os_kernel_is_active  clib_os.o
+    0x00002450   0x00002450   0x0000010e   Code   RO          599    .text.prvAddCurrentTaskToDelayedList  tasks.o
+    0x0000255e   0x0000255e   0x00000002   PAD
+    0x00002560   0x00002560   0x00000170   Code   RO          583    .text.prvAddNewTaskToReadyList  tasks.o
+    0x000026d0   0x000026d0   0x0000007e   Code   RO          761    .text.prvCheckForValidListAndQueue  timers.o
+    0x0000274e   0x0000274e   0x00000002   PAD
+    0x00002750   0x00002750   0x0000005a   Code   RO          633    .text.prvCheckTasksWaitingTermination  tasks.o
+    0x000027aa   0x000027aa   0x00000002   PAD
+    0x000027ac   0x000027ac   0x00000042   Code   RO          536    .text.prvCopyDataFromQueue  queue.o
+    0x000027ee   0x000027ee   0x00000002   PAD
+    0x000027f0   0x000027f0   0x000000cc   Code   RO          524    .text.prvCopyDataToQueue  queue.o
+    0x000028bc   0x000028bc   0x000000d8   Code   RO          629    .text.prvCreateIdleTasks  tasks.o
+    0x00002994   0x00002994   0x000000aa   Code   RO          581    .text.prvCreateStaticTask  tasks.o
+    0x00002a3e   0x00002a3e   0x00000002   PAD
+    0x00002a40   0x00002a40   0x0000008e   Code   RO          587    .text.prvCreateTask  tasks.o
+    0x00002ace   0x00002ace   0x00000002   PAD
+    0x00002ad0   0x00002ad0   0x00000050   Code   RO          593    .text.prvDeleteTCB  tasks.o
+    0x00002b20   0x00002b20   0x00000026   Code   RO          540    .text.prvGetHighestPriorityOfWaitToReceiveList  queue.o
+    0x00002b46   0x00002b46   0x00000002   PAD
+    0x00002b48   0x00002b48   0x00000040   Code   RO          807    .text.prvGetNextExpireTime  timers.o
+    0x00002b88   0x00002b88   0x000000aa   Code   RO          458    .text.prvHeapInit   heap_4.o
+    0x00002c32   0x00002c32   0x00000002   PAD
+    0x00002c34   0x00002c34   0x00000038   Code   RO          723    .text.prvIdleTask   tasks.o
+    0x00002c6c   0x00002c6c   0x0000002c   Code   RO          504    .text.prvInitialiseMutex  queue.o
+    0x00002c98   0x00002c98   0x00000048   Code   RO          496    .text.prvInitialiseNewQueue  queue.o
+    0x00002ce0   0x00002ce0   0x00000108   Code   RO          719    .text.prvInitialiseNewTask  tasks.o
+    0x00002de8   0x00002de8   0x0000008e   Code   RO          721    .text.prvInitialiseTaskLists  tasks.o
+    0x00002e76   0x00002e76   0x00000002   PAD
+    0x00002e78   0x00002e78   0x00000118   Code   RO          462    .text.prvInsertBlockIntoFreeList  heap_4.o
+    0x00002f90   0x00002f90   0x00000086   Code   RO          821    .text.prvInsertTimerInActiveList  timers.o
+    0x00003016   0x00003016   0x00000002   PAD
+    0x00003018   0x00003018   0x00000028   Code   RO          538    .text.prvIsQueueEmpty  queue.o
+    0x00003040   0x00003040   0x0000002e   Code   RO          526    .text.prvIsQueueFull  queue.o
+    0x0000306e   0x0000306e   0x00000002   PAD
+    0x00003070   0x00003070   0x00000028   Code   RO          434    .text.prvPortStartFirstTask  port.o
+    0x00003098   0x00003098   0x00000054   Code   RO          815    .text.prvProcessExpiredTimer  timers.o
+    0x000030ec   0x000030ec   0x0000017a   Code   RO          811    .text.prvProcessReceivedCommands  timers.o
+    0x00003266   0x00003266   0x00000002   PAD
+    0x00003268   0x00003268   0x0000009a   Code   RO          809    .text.prvProcessTimerOrBlockTask  timers.o
+    0x00003302   0x00003302   0x00000002   PAD
+    0x00003304   0x00003304   0x00000034   Code   RO          819    .text.prvReloadTimer  timers.o
+    0x00003338   0x00003338   0x0000003c   Code   RO          591    .text.prvResetNextTaskUnblockTime  tasks.o
+    0x00003374   0x00003374   0x00000044   Code   RO          813    .text.prvSampleTimeNow  timers.o
+    0x000033b8   0x000033b8   0x00000052   Code   RO          817    .text.prvSwitchTimerLists  timers.o
+    0x0000340a   0x0000340a   0x00000002   PAD
+    0x0000340c   0x0000340c   0x0000003e   Code   RO          422    .text.prvTaskExitError  port.o
+    0x0000344a   0x0000344a   0x00000002   PAD
+    0x0000344c   0x0000344c   0x0000001e   Code   RO          763    .text.prvTimerTask  timers.o
+    0x0000346a   0x0000346a   0x00000002   PAD
+    0x0000346c   0x0000346c   0x000000ae   Code   RO          528    .text.prvUnlockQueue  queue.o
+    0x0000351a   0x0000351a   0x00000002   PAD
+    0x0000351c   0x0000351c   0x000002b8   Code   RO          456    .text.pvPortMalloc  heap_4.o
+    0x000037d4   0x000037d4   0x00000024   Code   RO          697    .text.pvTaskIncrementMutexHeldCount  tasks.o
+    0x000037f8   0x000037f8   0x0000005e   Code   RO          420    .text.pxPortInitialiseStack  port.o
+    0x00003856   0x00003856   0x00000002   PAD
+    0x00003858   0x00003858   0x00000048   Code   RO          411    .text.uxListRemove  list.o
+    0x000038a0   0x000038a0   0x0000000c   Code   RO          641    .text.uxTaskGetNumberOfTasks  tasks.o
+    0x000038ac   0x000038ac   0x0000002a   Code   RO          713    .text.vApplicationGetIdleTaskMemory  tasks.o
+    0x000038d6   0x000038d6   0x00000002   PAD
+    0x000038d8   0x000038d8   0x0000002a   Code   RO          715    .text.vApplicationGetTimerTaskMemory  tasks.o
+    0x00003902   0x00003902   0x00000002   PAD
+    0x00003904   0x00003904   0x00000010   Code   RO          269    .text.vApplicationStackOverflowHook  cmsis_os2.o
+    0x00003914   0x00003914   0x0000016a   Code   RO           24    .text.vGateControlTask  main.o
+    0x00003a7e   0x00003a7e   0x00000002   PAD
+    0x00003a80   0x00003a80   0x00000170   Code   RO           20    .text.vInputTask    main.o
+    0x00003bf0   0x00003bf0   0x00000082   Code   RO           28    .text.vLedControlTask  main.o
+    0x00003c72   0x00003c72   0x00000002   PAD
+    0x00003c74   0x00003c74   0x0000002e   Code   RO          403    .text.vListInitialise  list.o
+    0x00003ca2   0x00003ca2   0x00000002   PAD
+    0x00003ca4   0x00003ca4   0x0000000e   Code   RO          405    .text.vListInitialiseItem  list.o
+    0x00003cb2   0x00003cb2   0x00000002   PAD
+    0x00003cb4   0x00003cb4   0x0000006a   Code   RO          409    .text.vListInsert   list.o
+    0x00003d1e   0x00003d1e   0x00000002   PAD
+    0x00003d20   0x00003d20   0x00000014   Code   RO          432    .text.vPortEnableVFP  port.o
+    0x00003d34   0x00003d34   0x00000048   Code   RO          438    .text.vPortEnterCritical  port.o
+    0x00003d7c   0x00003d7c   0x0000003c   Code   RO          440    .text.vPortExitCritical  port.o
+    0x00003db8   0x00003db8   0x000000de   Code   RO          460    .text.vPortFree     heap_4.o
+    0x00003e96   0x00003e96   0x00000002   PAD
+    0x00003e98   0x00003e98   0x00000044   Code   RO          430    .text.vPortSetupTimerInterrupt  port.o
+    0x00003edc   0x00003edc   0x00000068   Code   RO          444    .text.vPortValidateInterruptPriority  port.o
+    0x00003f44   0x00003f44   0x00000030   Code   RO           50    .text.vPrintString  basic_io.o
+    0x00003f74   0x00003f74   0x00000030   Code   RO          554    .text.vQueueDelete  queue.o
+    0x00003fa4   0x00003fa4   0x00000064   Code   RO          570    .text.vQueueWaitForMessageRestricted  queue.o
+    0x00004008   0x00004008   0x0000004e   Code   RO           16    .text.vSafetyTask   main.o
+    0x00004056   0x00004056   0x00000002   PAD
+    0x00004058   0x00004058   0x00000062   Code   RO          603    .text.vTaskDelay    tasks.o
+    0x000040ba   0x000040ba   0x00000002   PAD
+    0x000040bc   0x000040bc   0x00000024   Code   RO          667    .text.vTaskInternalSetTimeOutState  tasks.o
+    0x000040e0   0x000040e0   0x0000000e   Code   RO          671    .text.vTaskMissedYield  tasks.o
+    0x000040ee   0x000040ee   0x00000002   PAD
+    0x000040f0   0x000040f0   0x00000034   Code   RO          655    .text.vTaskPlaceOnEventList  tasks.o
+    0x00004124   0x00004124   0x00000072   Code   RO          659    .text.vTaskPlaceOnEventListRestricted  tasks.o
+    0x00004196   0x00004196   0x00000002   PAD
+    0x00004198   0x00004198   0x00000166   Code   RO          693    .text.vTaskPriorityDisinheritAfterTimeout  tasks.o
+    0x000042fe   0x000042fe   0x00000002   PAD
+    0x00004300   0x00004300   0x00000082   Code   RO          627    .text.vTaskStartScheduler  tasks.o
+    0x00004382   0x00004382   0x00000002   PAD
+    0x00004384   0x00004384   0x00000010   Code   RO          597    .text.vTaskSuspendAll  tasks.o
+    0x00004394   0x00004394   0x00000138   Code   RO          619    .text.vTaskSwitchContext  tasks.o
+    0x000044cc   0x000044cc   0x000001ac   Code   RO          426    .text.xPortStartScheduler  port.o
+    0x00004678   0x00004678   0x0000003e   Code   RO          442    .text.xPortSysTickHandler  port.o
+    0x000046b6   0x000046b6   0x00000002   PAD
+    0x000046b8   0x000046b8   0x00000026   Code   RO          502    .text.xQueueCreateMutex  queue.o
+    0x000046de   0x000046de   0x00000002   PAD
+    0x000046e0   0x000046e0   0x00000032   Code   RO          506    .text.xQueueCreateMutexStatic  queue.o
+    0x00004712   0x00004712   0x00000002   PAD
+    0x00004714   0x00004714   0x00000094   Code   RO          500    .text.xQueueGenericCreate  queue.o
+    0x000047a8   0x000047a8   0x0000009e   Code   RO          494    .text.xQueueGenericCreateStatic  queue.o
+    0x00004846   0x00004846   0x00000002   PAD
+    0x00004848   0x00004848   0x000000ec   Code   RO          492    .text.xQueueGenericReset  queue.o
+    0x00004934   0x00004934   0x000001f4   Code   RO          514    .text.xQueueGenericSend  queue.o
+    0x00004b28   0x00004b28   0x0000014c   Code   RO          530    .text.xQueueGenericSendFromISR  queue.o
+    0x00004c74   0x00004c74   0x00000124   Code   RO          532    .text.xQueueGiveFromISR  queue.o
+    0x00004d98   0x00004d98   0x000001b2   Code   RO          534    .text.xQueueReceive  queue.o
+    0x00004f4a   0x00004f4a   0x00000002   PAD
+    0x00004f4c   0x00004f4c   0x000001e6   Code   RO          518    .text.xQueueSemaphoreTake  queue.o
+    0x00005132   0x00005132   0x00000002   PAD
+    0x00005134   0x00005134   0x000000e0   Code   RO          669    .text.xTaskCheckForTimeOut  tasks.o
+    0x00005214   0x00005214   0x00000052   Code   RO          585    .text.xTaskCreate   tasks.o
+    0x00005266   0x00005266   0x00000002   PAD
+    0x00005268   0x00005268   0x0000005c   Code   RO          579    .text.xTaskCreateStatic  tasks.o
+    0x000052c4   0x000052c4   0x00000038   Code   RO          687    .text.xTaskGetSchedulerState  tasks.o
+    0x000052fc   0x000052fc   0x00000014   Code   RO          637    .text.xTaskGetTickCount  tasks.o
+    0x00005310   0x00005310   0x00000276   Code   RO          635    .text.xTaskIncrementTick  tasks.o
+    0x00005586   0x00005586   0x00000002   PAD
+    0x00005588   0x00005588   0x0000011e   Code   RO          691    .text.xTaskPriorityDisinherit  tasks.o
+    0x000056a6   0x000056a6   0x00000002   PAD
+    0x000056a8   0x000056a8   0x0000015c   Code   RO          689    .text.xTaskPriorityInherit  tasks.o
+    0x00005804   0x00005804   0x000001a2   Code   RO          661    .text.xTaskRemoveFromEventList  tasks.o
+    0x000059a6   0x000059a6   0x00000002   PAD
+    0x000059a8   0x000059a8   0x00000248   Code   RO          601    .text.xTaskResumeAll  tasks.o
+    0x00005bf0   0x00005bf0   0x00000086   Code   RO          759    .text.xTimerCreateTimerTask  timers.o
+    0x00005c76   0x00005c76   0x0000003e   Code   RO         1014    CL$$btod_d2e        c_w.l(btod.o)
+    0x00005cb4   0x00005cb4   0x00000046   Code   RO         1016    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
+    0x00005cfa   0x00005cfa   0x00000060   Code   RO         1015    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
+    0x00005d5a   0x00005d5a   0x00000002   PAD
+    0x00005d5c   0x00005d5c   0x00000338   Code   RO         1024    CL$$btod_div_common  c_w.l(btod.o)
+    0x00006094   0x00006094   0x000000dc   Code   RO         1021    CL$$btod_e2e        c_w.l(btod.o)
+    0x00006170   0x00006170   0x0000002a   Code   RO         1018    CL$$btod_ediv       c_w.l(btod.o)
+    0x0000619a   0x0000619a   0x0000002a   Code   RO         1017    CL$$btod_emul       c_w.l(btod.o)
+    0x000061c4   0x000061c4   0x00000244   Code   RO         1023    CL$$btod_mult_common  c_w.l(btod.o)
+    0x00006408   0x00006408   0x00000030   Code   RO         1050    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
+    0x00006438   0x00006438   0x0000000e   Code   RO          918    i._is_digit         c_w.l(__printf_wp.o)
+    0x00006446   0x00006446   0x00000002   PAD
+    0x00006448   0x00006448   0x0000002c   Code   RO         1039    locale$$code        c_w.l(lc_numeric_c.o)
+    0x00006474   0x00006474   0x0000002c   Code   RO         1060    locale$$code        c_w.l(lc_ctype_c.o)
+    0x000064a0   0x000064a0   0x0000001a   Code   RO          857    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x000064ba   0x000064ba   0x00000004   Code   RO          955    x$fpl$printf1       fz_wm.l(printf1.o)
+    0x000064be   0x000064be   0x00000004   Code   RO          957    x$fpl$printf2       fz_wm.l(printf2.o)
+    0x000064c2   0x000064c2   0x00000000   Code   RO         1049    x$fpl$usenofp       fz_wm.l(usenofp.o)
+    0x000064c2   0x000064c2   0x00000002   PAD
+    0x000064c4   0x000064c4   0x00000008   Data   RO          877    .constdata          c_w.l(_printf_wctomb.o)
+    0x000064cc   0x000064cc   0x00000028   Data   RO          906    .constdata          c_w.l(_printf_hex_int_ll_ptr.o)
+    0x000064f4   0x000064f4   0x00000011   Data   RO          926    .constdata          c_w.l(__printf_flags_ss_wp.o)
+    0x00006505   0x00006505   0x00000026   Data   RO          987    .constdata          c_w.l(_printf_fp_hex.o)
+    0x0000652b   0x0000652b   0x00000001   PAD
+    0x0000652c   0x0000652c   0x00000094   Data   RO         1012    .constdata          c_w.l(bigflt0.o)
+    0x000065c0   0x000065c0   0x000000f1   Data   RO           39    .rodata.str1.1      main.o
+    0x000066b1   0x000066b1   0x00000003   Data   RO           57    .rodata.str1.1      basic_io.o
+    0x000066b4   0x000066b4   0x00000005   Data   RO          751    .rodata.str1.1      tasks.o
+    0x000066b9   0x000066b9   0x00000008   Data   RO          824    .rodata.str1.1      timers.o
+    0x000066c1   0x000066c1   0x00000003   PAD
+    0x000066c4   0x000066c4   0x00000004   Data   RO          742    .rodata.uxTopUsedPriority  tasks.o
+    0x000066c8   0x000066c8   0x00000020   Data   RO         1189    Region$$Table       anon$$obj.o
+    0x000066e8   0x000066e8   0x0000001c   Data   RO         1038    locale$$data        c_w.l(lc_numeric_c.o)
+    0x00006704   0x00006704   0x00000110   Data   RO         1059    locale$$data        c_w.l(lc_ctype_c.o)
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000064ac, Size: 0x0000000c, Max: 0xffffffff, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x20000000   0x000064ac   0x00000004   Data   RW          351    .data.SystemCoreClock  system_tm4c123.o
-    0x20000004   0x000064b0   0x00000001   Data   RW           30    .data.gateState     main.o
-    0x20000005   0x000064b1   0x00000003   PAD
-    0x20000008   0x000064b4   0x00000004   Data   RW          444    .data.uxCriticalNesting  port.o
-
-
-    Execution Region ER_ZI (Exec base: 0x20000010, Load base: 0x000064b8, Size: 0x00002f00, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00006814, Size: 0x0000000c, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000010        -       0x00000060   Zero   RW         1049    .bss                c_w.l(libspace.o)
-    0x20000070        -       0x00000032   Zero   RW           52    .bss.cBuffer        basic_io.o
-    0x200000a2   0x000064b8   0x00000002   PAD
-    0x200000a4        -       0x00000190   Zero   RW          103    .bss.clib_mutex_cb  clib_os.o
-    0x20000234        -       0x00000014   Zero   RW          102    .bss.clib_mutex_id  clib_os.o
-    0x20000248        -       0x00000050   Zero   RW          828    .bss.prvCheckForValidListAndQueue.ucStaticTimerQueueStorage  timers.o
-    0x20000298        -       0x00000050   Zero   RW          827    .bss.prvCheckForValidListAndQueue.xStaticTimerQueue  timers.o
-    0x200002e8        -       0x00000004   Zero   RW          824    .bss.prvSampleTimeNow.xLastTime  timers.o
-    0x200002ec        -       0x00000004   Zero   RW          721    .bss.pxCurrentTCB   tasks.o
-    0x200002f0        -       0x00000004   Zero   RW          822    .bss.pxCurrentTimerList  timers.o
-    0x200002f4        -       0x00000004   Zero   RW          729    .bss.pxDelayedTaskList  tasks.o
-    0x200002f8        -       0x00000004   Zero   RW          474    .bss.pxEnd          heap_4.o
-    0x200002fc        -       0x00000004   Zero   RW          730    .bss.pxOverflowDelayedTaskList  tasks.o
-    0x20000300        -       0x00000004   Zero   RW          823    .bss.pxOverflowTimerList  timers.o
-    0x20000304        -       0x00000460   Zero   RW          733    .bss.pxReadyTasksLists  tasks.o
-    0x20000764        -       0x00002000   Zero   RW          477    .bss.ucHeap         heap_4.o
-    0x20002764        -       0x00000001   Zero   RW          442    .bss.ucMaxSysCallPriority  port.o
-    0x20002765   0x000064b8   0x00000003   PAD
-    0x20002768        -       0x00000004   Zero   RW          443    .bss.ulMaxPRIGROUPValue  port.o
-    0x2000276c        -       0x00000004   Zero   RW          726    .bss.uxCurrentNumberOfTasks  tasks.o
-    0x20002770        -       0x00000004   Zero   RW          725    .bss.uxDeletedTasksWaitingCleanUp  tasks.o
-    0x20002774        -       0x00000004   Zero   RW          727    .bss.uxSchedulerSuspended  tasks.o
-    0x20002778        -       0x00000004   Zero   RW          722    .bss.uxTaskNumber   tasks.o
-    0x2000277c        -       0x00000004   Zero   RW          734    .bss.uxTopReadyPriority  tasks.o
-    0x20002780        -       0x00000200   Zero   RW          742    .bss.vApplicationGetIdleTaskMemory.uxIdleTaskStack  tasks.o
-    0x20002980        -       0x0000005c   Zero   RW          741    .bss.vApplicationGetIdleTaskMemory.xIdleTaskTCB  tasks.o
-    0x200029dc        -       0x00000200   Zero   RW          744    .bss.vApplicationGetTimerTaskMemory.uxTimerTaskStack  tasks.o
-    0x20002bdc        -       0x0000005c   Zero   RW          743    .bss.vApplicationGetTimerTaskMemory.xTimerTaskTCB  tasks.o
-    0x20002c38        -       0x00000014   Zero   RW          825    .bss.xActiveTimerList1  timers.o
-    0x20002c4c        -       0x00000014   Zero   RW          826    .bss.xActiveTimerList2  timers.o
-    0x20002c60        -       0x00000004   Zero   RW           36    .bss.xButtonQueue   main.o
-    0x20002c64        -       0x00000014   Zero   RW          745    .bss.xDelayedTaskList1  tasks.o
-    0x20002c78        -       0x00000014   Zero   RW          746    .bss.xDelayedTaskList2  tasks.o
-    0x20002c8c        -       0x00000004   Zero   RW          475    .bss.xFreeBytesRemaining  heap_4.o
-    0x20002c90        -       0x00000004   Zero   RW           37    .bss.xGateMutex     main.o
-    0x20002c94        -       0x00000004   Zero   RW          737    .bss.xIdleTaskHandles  tasks.o
-    0x20002c98        -       0x00000004   Zero   RW           33    .bss.xLimitSemaphore  main.o
-    0x20002c9c        -       0x00000004   Zero   RW          478    .bss.xMinimumEverFreeBytesRemaining  heap_4.o
-    0x20002ca0        -       0x00000004   Zero   RW          736    .bss.xNextTaskUnblockTime  tasks.o
-    0x20002ca4        -       0x00000004   Zero   RW          740    .bss.xNumOfOverflows  tasks.o
-    0x20002ca8        -       0x00000004   Zero   RW          479    .bss.xNumberOfSuccessfulAllocations  heap_4.o
-    0x20002cac        -       0x00000004   Zero   RW          480    .bss.xNumberOfSuccessfulFrees  heap_4.o
-    0x20002cb0        -       0x00000004   Zero   RW           32    .bss.xObstacleSemaphore  main.o
-    0x20002cb4        -       0x00000004   Zero   RW          739    .bss.xPendedTicks   tasks.o
-    0x20002cb8        -       0x00000014   Zero   RW          731    .bss.xPendingReadyList  tasks.o
-    0x20002ccc        -       0x00000004   Zero   RW          723    .bss.xSchedulerRunning  tasks.o
-    0x20002cd0        -       0x00000008   Zero   RW          476    .bss.xStart         heap_4.o
-    0x20002cd8        -       0x00000014   Zero   RW          732    .bss.xSuspendedTaskList  tasks.o
-    0x20002cec        -       0x00000014   Zero   RW          724    .bss.xTasksWaitingTermination  tasks.o
-    0x20002d00        -       0x00000004   Zero   RW          728    .bss.xTickCount     tasks.o
-    0x20002d04        -       0x00000004   Zero   RW          819    .bss.xTimerQueue    timers.o
-    0x20002d08        -       0x00000004   Zero   RW          821    .bss.xTimerTaskHandle  timers.o
-    0x20002d0c        -       0x00000004   Zero   RW          735    .bss.xYieldPendings  tasks.o
-    0x20002d10        -       0x00000000   Zero   RW          336    HEAP                startup_tm4c123.o
-    0x20002d10        -       0x00000200   Zero   RW          335    STACK               startup_tm4c123.o
+    0x20000000   0x00006814   0x00000004   Data   RW          355    .data.SystemCoreClock  system_tm4c123.o
+    0x20000004   0x00006818   0x00000001   Data   RW           34    .data.gateState     main.o
+    0x20000005   0x00006819   0x00000003   PAD
+    0x20000008   0x0000681c   0x00000004   Data   RW          448    .data.uxCriticalNesting  port.o
+
+
+    Execution Region ER_ZI (Exec base: 0x20000010, Load base: 0x00006820, Size: 0x00002f08, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000010        -       0x00000060   Zero   RW         1053    .bss                c_w.l(libspace.o)
+    0x20000070        -       0x00000032   Zero   RW           56    .bss.cBuffer        basic_io.o
+    0x200000a2   0x00006820   0x00000002   PAD
+    0x200000a4        -       0x00000190   Zero   RW          107    .bss.clib_mutex_cb  clib_os.o
+    0x20000234        -       0x00000014   Zero   RW          106    .bss.clib_mutex_id  clib_os.o
+    0x20000248        -       0x00000050   Zero   RW          832    .bss.prvCheckForValidListAndQueue.ucStaticTimerQueueStorage  timers.o
+    0x20000298        -       0x00000050   Zero   RW          831    .bss.prvCheckForValidListAndQueue.xStaticTimerQueue  timers.o
+    0x200002e8        -       0x00000004   Zero   RW          828    .bss.prvSampleTimeNow.xLastTime  timers.o
+    0x200002ec        -       0x00000004   Zero   RW          725    .bss.pxCurrentTCB   tasks.o
+    0x200002f0        -       0x00000004   Zero   RW          826    .bss.pxCurrentTimerList  timers.o
+    0x200002f4        -       0x00000004   Zero   RW          733    .bss.pxDelayedTaskList  tasks.o
+    0x200002f8        -       0x00000004   Zero   RW          478    .bss.pxEnd          heap_4.o
+    0x200002fc        -       0x00000004   Zero   RW          734    .bss.pxOverflowDelayedTaskList  tasks.o
+    0x20000300        -       0x00000004   Zero   RW          827    .bss.pxOverflowTimerList  timers.o
+    0x20000304        -       0x00000460   Zero   RW          737    .bss.pxReadyTasksLists  tasks.o
+    0x20000764        -       0x00002000   Zero   RW          481    .bss.ucHeap         heap_4.o
+    0x20002764        -       0x00000001   Zero   RW          446    .bss.ucMaxSysCallPriority  port.o
+    0x20002765   0x00006820   0x00000003   PAD
+    0x20002768        -       0x00000004   Zero   RW          447    .bss.ulMaxPRIGROUPValue  port.o
+    0x2000276c        -       0x00000004   Zero   RW          730    .bss.uxCurrentNumberOfTasks  tasks.o
+    0x20002770        -       0x00000004   Zero   RW          729    .bss.uxDeletedTasksWaitingCleanUp  tasks.o
+    0x20002774        -       0x00000004   Zero   RW          731    .bss.uxSchedulerSuspended  tasks.o
+    0x20002778        -       0x00000004   Zero   RW          726    .bss.uxTaskNumber   tasks.o
+    0x2000277c        -       0x00000004   Zero   RW          738    .bss.uxTopReadyPriority  tasks.o
+    0x20002780        -       0x00000200   Zero   RW          746    .bss.vApplicationGetIdleTaskMemory.uxIdleTaskStack  tasks.o
+    0x20002980        -       0x0000005c   Zero   RW          745    .bss.vApplicationGetIdleTaskMemory.xIdleTaskTCB  tasks.o
+    0x200029dc        -       0x00000200   Zero   RW          748    .bss.vApplicationGetTimerTaskMemory.uxTimerTaskStack  tasks.o
+    0x20002bdc        -       0x0000005c   Zero   RW          747    .bss.vApplicationGetTimerTaskMemory.xTimerTaskTCB  tasks.o
+    0x20002c38        -       0x00000014   Zero   RW          829    .bss.xActiveTimerList1  timers.o
+    0x20002c4c        -       0x00000014   Zero   RW          830    .bss.xActiveTimerList2  timers.o
+    0x20002c60        -       0x00000004   Zero   RW           38    .bss.xButtonQueue   main.o
+    0x20002c64        -       0x00000014   Zero   RW          749    .bss.xDelayedTaskList1  tasks.o
+    0x20002c78        -       0x00000014   Zero   RW          750    .bss.xDelayedTaskList2  tasks.o
+    0x20002c8c        -       0x00000004   Zero   RW          479    .bss.xFreeBytesRemaining  heap_4.o
+    0x20002c90        -       0x00000004   Zero   RW           41    .bss.xGateMutex     main.o
+    0x20002c94        -       0x00000004   Zero   RW          741    .bss.xIdleTaskHandles  tasks.o
+    0x20002c98        -       0x00000004   Zero   RW           37    .bss.xLimitSemaphore  main.o
+    0x20002c9c        -       0x00000004   Zero   RW          482    .bss.xMinimumEverFreeBytesRemaining  heap_4.o
+    0x20002ca0        -       0x00000004   Zero   RW          740    .bss.xNextTaskUnblockTime  tasks.o
+    0x20002ca4        -       0x00000004   Zero   RW          744    .bss.xNumOfOverflows  tasks.o
+    0x20002ca8        -       0x00000004   Zero   RW          483    .bss.xNumberOfSuccessfulAllocations  heap_4.o
+    0x20002cac        -       0x00000004   Zero   RW          484    .bss.xNumberOfSuccessfulFrees  heap_4.o
+    0x20002cb0        -       0x00000004   Zero   RW           36    .bss.xObstacleSemaphore  main.o
+    0x20002cb4        -       0x00000004   Zero   RW          743    .bss.xPendedTicks   tasks.o
+    0x20002cb8        -       0x00000014   Zero   RW          735    .bss.xPendingReadyList  tasks.o
+    0x20002ccc        -       0x00000004   Zero   RW          727    .bss.xSchedulerRunning  tasks.o
+    0x20002cd0        -       0x00000008   Zero   RW          480    .bss.xStart         heap_4.o
+    0x20002cd8        -       0x00000014   Zero   RW          736    .bss.xSuspendedTaskList  tasks.o
+    0x20002cec        -       0x00000014   Zero   RW          728    .bss.xTasksWaitingTermination  tasks.o
+    0x20002d00        -       0x00000004   Zero   RW          732    .bss.xTickCount     tasks.o
+    0x20002d04        -       0x00000004   Zero   RW          823    .bss.xTimerQueue    timers.o
+    0x20002d08        -       0x00000004   Zero   RW          825    .bss.xTimerTaskHandle  timers.o
+    0x20002d0c        -       0x00000004   Zero   RW           40    .bss.xValidatedQueue  main.o
+    0x20002d10        -       0x00000004   Zero   RW          739    .bss.xYieldPendings  tasks.o
+    0x20002d14   0x00006820   0x00000004   PAD
+    0x20002d18        -       0x00000000   Zero   RW          340    HEAP                startup_tm4c123.o
+    0x20002d18        -       0x00000200   Zero   RW          339    STACK               startup_tm4c123.o
 
 
 ==============================================================================
@@ -3563,9 +3585,9 @@ Image component sizes
         32          0          0          0          0        592   consoleprint.o
       1368          0          0          0       8220       4854   heap_4.o
        238          0          0          0          0       2366   list.o
-      2604         14        258          1         16       5141   main.o
+      3162         14        241          1         20       5484   main.o
       1138         16          0          4          5       3753   port.o
-      3174          0          0          0          0      15482   queue.o
+      3506          0          0          0          0      15482   queue.o
        130          0          0          0          0       1757   retarget.o
        276         24        620          0        512       5512   startup_tm4c123.o
        268          0          0          4          0       6822   system_tm4c123.o
@@ -3573,9 +3595,9 @@ Image component sizes
       1306         10          8          0        220      11496   timers.o
 
     ----------------------------------------------------------------------
-     17018         64        932         12      11936     121047   Object Totals
+     17906         64        916         12      11944     121390   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       108          0          2          3          5          0   (incl. Padding)
+       106          0          3          3          9          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -3685,15 +3707,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     24288        322       1484         12      12032     123007   Grand Totals
-     24288        322       1484         12      12032     123007   ELF Image Totals
-     24288        322       1484         12          0          0   ROM Totals
+     25176        322       1468         12      12040     123350   Grand Totals
+     25176        322       1468         12      12040     123350   ELF Image Totals
+     25176        322       1468         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                25772 (  25.17kB)
-    Total RW  Size (RW Data + ZI Data)             12044 (  11.76kB)
-    Total ROM Size (Code + RO Data + RW Data)      25784 (  25.18kB)
+    Total RO  Size (Code + RO Data)                26644 (  26.02kB)
+    Total RW  Size (RW Data + ZI Data)             12052 (  11.77kB)
+    Total ROM Size (Code + RO Data + RW Data)      26656 (  26.03kB)
 
 ==============================================================================
 
