@@ -176,7 +176,7 @@ static void GPIO_Init(void)
     GPIO_PORTF_IM_R |= BTN_PF4;    // Enable interrupts 
     
     NVIC_EN0_R |= (1 << 30);
-    NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF00FFFF) | (3 << 21);
+    NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF00FFFF) | (6 << 21);
 		
 		//Port E interrupt (limit buttons)
 		GPIO_PORTE_IS_R &= ~(BTN_PE0 | BTN_PE1);   // Edge-sensitive
@@ -186,7 +186,7 @@ static void GPIO_Init(void)
     GPIO_PORTE_IM_R |= (BTN_PE0 | BTN_PE1);    // Enable interrupts for both switches
     
     NVIC_EN0_R |= (1 << 4);
-    NVIC_PRI4_R = (NVIC_PRI4_R & 0xFF00FFFF) | (4 << 21);
+    NVIC_PRI1_R = (NVIC_PRI1_R & 0xFFFFFF1FU) | (7U << 5);
 		
 		
 		//Port B interrupt (security buttons)
@@ -196,8 +196,8 @@ static void GPIO_Init(void)
     GPIO_PORTB_ICR_R = (BTN_PB0 | BTN_PB1);    // Clear any prior interrupts
     GPIO_PORTB_IM_R |= (BTN_PB0 | BTN_PB1);    // Enable interrupts for both switches
     
-    NVIC_EN0_R |= (1 << 2);
-    NVIC_PRI2_R = (NVIC_PRI2_R & 0xFF00FFFF) | (5 << 21);
+    NVIC_EN0_R |= (1 << 1);
+    NVIC_PRI0_R = (NVIC_PRI0_R & 0xFFFF1FFF) | (6 << 13);
 		
 		//Port D interrupt (driver buttons)
 		GPIO_PORTD_IS_R &= ~(BTN_PD0 | BTN_PD1);   // Edge-sensitive
@@ -207,7 +207,7 @@ static void GPIO_Init(void)
     GPIO_PORTD_IM_R |= (BTN_PD0 | BTN_PD1);    // Enable interrupts for both switches
     
     NVIC_EN0_R |= (1 << 3);
-    NVIC_PRI3_R = (NVIC_PRI3_R & 0xFF00FFFF) | (6 << 21);
+    NVIC_PRI0_R = (NVIC_PRI0_R & 0x1FFFFFFF) | (7U << 29);
 }
 
 //Obstacle Handler
