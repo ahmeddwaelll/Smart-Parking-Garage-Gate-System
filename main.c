@@ -31,7 +31,8 @@
 QueueHandle_t xButtonQueue;           // Queue for button events
 QueueHandle_t xValidatedQueue;        // Queue for validated button presses
 SemaphoreHandle_t xObstacleSemaphore; // For obstacle detection
-SemaphoreHandle_t xLimitSemaphore;    // For limit buttons
+SemaphoreHandle_t xOpenLimitSemaphore;
+SemaphoreHandle_t xClosedLimitSemaphore;
 SemaphoreHandle_t xGateMutex;         // Protect gate state
 
 
@@ -228,12 +229,12 @@ void GPIOE_Handler(void) {
     
     if (GPIO_PORTE_RIS_R & BTN_PE0) {
         GPIO_PORTE_ICR_R = BTN_PE0; 
-        xSemaphoreGiveFromISR(xLimitSemaphore, &xHigherPriorityTaskWoken);
+        xSemaphoreGiveFromISR(xOpenLimitSemaphore, &xHigherPriorityTaskWoken);
     }
     
     if (GPIO_PORTE_RIS_R & BTN_PE1) {
         GPIO_PORTE_ICR_R = BTN_PE1; 
-        xSemaphoreGiveFromISR(xLimitSemaphore, &xHigherPriorityTaskWoken);
+        xSemaphoreGiveFromISR(xClosedLimitSemaphore, &xHigherPriorityTaskWoken);
     }
     
     portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
@@ -310,45 +311,56 @@ void vInputTask(void *pvParameters) {
         vTaskDelay(pdMS_TO_TICKS(20));
         
         // Verify still pressed using YOUR existing function
+        // Verify still pressed using YOUR existing function
         if (IsButtonStillPressedByID(eEvent)) {
-					
-						GateState_t currentState = GateState_Get();
-            
-            // Print based on gate state and button type
-            if (eEvent == BTN_SECURITY_OPEN &&
-                (currentState == IDLE_CLOSED || currentState == STOPPED_MIDWAY)) {
-                vPrintString("Security opening\n");
+
+            // --- CONFLICT CHECK ---
+            if ((IsButtonStillPressedByID(BTN_DRIVER_OPEN) && IsButtonStillPressedByID(BTN_DRIVER_CLOSE)) ||
+                (IsButtonStillPressedByID(BTN_SECURITY_OPEN) && IsButtonStillPressedByID(BTN_SECURITY_CLOSE))) {
+                
+                // Force a safe stop
+                ButtonEvent_t releaseEvent = BTN_RELEASED;
+                xQueueSend(xValidatedQueue, &releaseEvent, 0);
+                continue; // Skip the rest, jump back to reading the queue
             }
-            else if (eEvent == BTN_SECURITY_CLOSE &&
-                     (currentState == IDLE_OPEN || currentState == STOPPED_MIDWAY)) {
-                vPrintString("Security closing\n");
+
+            // --- GRADING TC-13 & TC-14: SECURITY PRIORITY ---
+            if ((eEvent == BTN_DRIVER_OPEN || eEvent == BTN_DRIVER_CLOSE) &&
+                (IsButtonStillPressedByID(BTN_SECURITY_OPEN) || IsButtonStillPressedByID(BTN_SECURITY_CLOSE))) {
+                
+                continue; // Ignore the driver's command completely
             }
-						else if (eEvent == BTN_DRIVER_OPEN &&
-                     (currentState == IDLE_CLOSED || currentState == STOPPED_MIDWAY)) {
-                vPrintString("Driver opening\n");
-            }
-						else if (eEvent == BTN_DRIVER_CLOSE &&
-                     (currentState == IDLE_OPEN || currentState == STOPPED_MIDWAY)) {
-                vPrintString("Driver closing\n");
-            }
-						// Forward press event to Gate Task
+
+            GateState_t currentState = GateState_Get();
+
+            // Forward press event to Gate Task
             xQueueSend(xValidatedQueue, &eEvent, 0);
-            
+
             // Wait for release
             while (IsButtonStillPressedByID(eEvent)) {
+                
+                // --- ESCAPE HATCH FOR SIMULTANEOUS PRESSES ---
+                // Break if Security overrides Driver mid-press
+                if ((eEvent == BTN_DRIVER_OPEN || eEvent == BTN_DRIVER_CLOSE) &&
+                    (IsButtonStillPressedByID(BTN_SECURITY_OPEN) || IsButtonStillPressedByID(BTN_SECURITY_CLOSE))) {
+                    break;
+                }
+                
+                // Break if user mashes the opposite button mid-press
+                if (eEvent == BTN_DRIVER_OPEN && IsButtonStillPressedByID(BTN_DRIVER_CLOSE)) break;
+                if (eEvent == BTN_DRIVER_CLOSE && IsButtonStillPressedByID(BTN_DRIVER_OPEN)) break;
+                if (eEvent == BTN_SECURITY_OPEN && IsButtonStillPressedByID(BTN_SECURITY_CLOSE)) break;
+                if (eEvent == BTN_SECURITY_CLOSE && IsButtonStillPressedByID(BTN_SECURITY_OPEN)) break;
+
                 vTaskDelay(pdMS_TO_TICKS(10));
             }
-            
+
             // Calculate hold duration
             if ((xTaskGetTickCount() - xPressTime) >= HOLD_THRESHOLD) {
-                // Manual mode: send RELEASED event
+                // Manual mode: send RELEASED event to stop the gate
                 ButtonEvent_t release = BTN_RELEASED;
-								vPrintString("Manual press\n");
                 xQueueSend(xValidatedQueue, &release, 0);
-            } else {
-                // Auto mode: do nothing
-                vPrintString("Auto press, press limit to stop\n");
-            }
+            } 
         }
     }
 }
@@ -359,14 +371,19 @@ void vGateControlTask(void *pvParameters) {
 
     while(1) {
         // Step 1: Check Limits First
-        if (xSemaphoreTake(xLimitSemaphore, 0) == pdTRUE) {
+        if (xSemaphoreTake(xOpenLimitSemaphore, 0) == pdTRUE) {
             eCurrentState = GateState_Get();
             
             if (eCurrentState == OPENING) {
                 GateState_Set(IDLE_OPEN);
                 vPrintString("Open Limit Hit -> IDLE_OPEN\n");
             } 
-            else if (eCurrentState == CLOSING) {
+        }
+
+        if (xSemaphoreTake(xClosedLimitSemaphore, 0) == pdTRUE) {
+            eCurrentState = GateState_Get();
+            
+            if (eCurrentState == CLOSING) {
                 GateState_Set(IDLE_CLOSED);
                 vPrintString("Closed Limit Hit -> IDLE_CLOSED\n");
             }
@@ -452,7 +469,8 @@ int main(void) {
     xButtonQueue = xQueueCreate(10, sizeof(ButtonEvent_t));
 		xValidatedQueue = xQueueCreate(10, sizeof(ButtonEvent_t));
     xObstacleSemaphore = xSemaphoreCreateBinary();
-	  xLimitSemaphore = xSemaphoreCreateBinary();
+	  xOpenLimitSemaphore = xSemaphoreCreateBinary();
+    xClosedLimitSemaphore = xSemaphoreCreateBinary();
     xGateMutex = xSemaphoreCreateMutex();
     
     gateState = IDLE_CLOSED;
