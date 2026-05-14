@@ -324,7 +324,7 @@ void vInputTask(void *pvParameters) {
                 continue; // Skip the rest, jump back to reading the queue
             }
 
-            // --- GRADING TC-13 & TC-14: SECURITY PRIORITY ---
+            // --- SECURITY PRIORITY ---
             if ((eEvent == BTN_DRIVER_OPEN || eEvent == BTN_DRIVER_CLOSE) &&
                 (IsButtonStillPressedByID(BTN_SECURITY_OPEN) || IsButtonStillPressedByID(BTN_SECURITY_CLOSE))) {
                 
@@ -478,7 +478,7 @@ int main(void) {
     xTaskCreate(vSafetyTask, "Safety", 256, NULL, 4, NULL);
     xTaskCreate(vInputTask, "Input", 256, NULL, 3, NULL);
     xTaskCreate(vGateControlTask, "Gate Control", 512, NULL, 2, NULL);
-    xTaskCreate(vLedControlTask, "LED", 128, NULL, 1, NULL);
+    xTaskCreate(vLedControlTask, "LED", 128, NULL, 2, NULL);
     
     vTaskStartScheduler();
     
